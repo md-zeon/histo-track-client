@@ -3,32 +3,56 @@ import axios from "axios";
 import { FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
 const ArtifactDetails = () => {
 	const artifactData = useLoaderData();
 	const [artifact, setArtifact] = useState(artifactData);
-	const [liked, setLiked] = useState(localStorage.getItem(`liked-${artifact._id}`) === "true");
-    const navigate = useNavigate();
+	const [liked, setLiked] = useState(false);
+	const navigate = useNavigate();
+	const { user } = useAuth();
+
+	const userEmail = user?.email;
 
 	useEffect(() => {
-		localStorage.setItem(`liked-${artifact._id}`, JSON.stringify(liked));
-	}, [liked, artifact._id]);
+		if (!userEmail) return;
+		axios
+			.get(`http://localhost:3000/liked-artifacts?email=${userEmail}`)
+			.then((res) => {
+				const likedArtifacts = res.data;
+				const isLiked = likedArtifacts.some((a) => a._id === artifact._id);
+				setLiked(isLiked);
+			})
+			.catch((err) => {
+				console.error("Failed to fetch liked artifacts:", err);
+				toast.error("Could not fetch liked status.");
+			});
+	}, [artifact._id, userEmail]);
 
 	const toggleLike = () => {
-		const newLikedState = !liked;
+		if (!userEmail) {
+			toast.warn("Please log in to like artifacts.");
+			return;
+		}
 		axios
-			.patch(`http://localhost:3000/artifacts/toggle-like/${artifact._id}`, { liked: newLikedState })
+			.patch(`http://localhost:3000/artifacts/toggle-like/${artifact._id}`, { email: userEmail })
 			.then((res) => {
-				if (res.data.modifiedCount) {
-					setArtifact({ ...artifact, likes: newLikedState ? artifact.likes + 1 : artifact.likes - 1 });
-					setLiked(newLikedState);
+				if (res.data.liked === true) {
+					setArtifact({ ...artifact, likes: artifact.likes + 1 });
+					setLiked(true);
+					toast.success("Artifact liked!");
+				} else if (res.data.liked === false) {
+					setArtifact({ ...artifact, likes: artifact.likes - 1 });
+					setLiked(false);
+					toast.info("Artifact disliked.");
 				}
 			})
 			.catch((err) => {
 				console.error("Failed to toggle like:", err);
-				toast.error(err.message);;
+				toast.error(err.message || "Failed to toggle like");
 			});
 	};
+
 	return (
 		<div className='max-w-4xl mx-auto p-6'>
 			<div className='card bg-base-100 shadow-xl overflow-hidden'>
@@ -41,7 +65,12 @@ const ArtifactDetails = () => {
 				</figure>
 
 				<div className='card-body space-y-4'>
-                    <button className="btn btn-primary btn-outline btn-circle btn-sm  cursor-pointer" onClick={() => navigate(-1)}><FaArrowLeft /></button>
+					<button
+						className='btn btn-primary btn-outline btn-circle btn-sm cursor-pointer'
+						onClick={() => navigate(-1)}
+					>
+						<FaArrowLeft />
+					</button>
 					<h2 className='card-title text-3xl font-bold text-primary'>{artifact.name}</h2>
 					<p className='text-gray-600'>{artifact.shortDescription}</p>
 
@@ -75,7 +104,9 @@ const ArtifactDetails = () => {
 							<span>{artifact.likes}</span>
 						</button>
 
-						<div className='badge badge-secondary badge-lg badge-outline badge-soft rounded-full px-4 py-2 shadow-inner'><FaHeart  className="text-red-500"/> Appreciation matters!</div>
+						<div className='badge badge-secondary badge-lg badge-outline badge-soft rounded-full px-4 py-2 shadow-inner'>
+							<FaHeart className='text-red-500' /> Appreciation matters!
+						</div>
 					</div>
 				</div>
 			</div>
