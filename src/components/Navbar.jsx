@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-	const { user } = useAuth();
+	const { user, logoutUser } = useAuth();
 	const links = (
 		<>
 			<li>
@@ -18,6 +20,33 @@ const Navbar = () => {
 			)}
 		</>
 	);
+
+	const handleLogout = () => {
+		Swal.fire({
+			title: "Are you sure?",
+			text: "You want to logout?",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, logout!",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				logoutUser()
+					.then(() => {
+						Swal.fire({
+							title: "Logged out!",
+							text: "You have logged out successfully.",
+							icon: "success",
+						});
+					})
+					.catch((error) => {
+						toast.error(error.message);
+					});
+			}
+		});
+	};
+
 	return (
 		<nav className='navbar bg-base-100 shadow-sm'>
 			<div className='navbar-start'>
@@ -79,7 +108,7 @@ const Navbar = () => {
 							tabIndex={0}
 							className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2'
 						>
-							<li className="text-xs px-2 font-bold">{user?.displayName}</li>
+							<li className='text-xs px-2 font-bold'>{user?.displayName}</li>
 							<li>
 								<NavLink to='/my-artifacts'>My Artifacts</NavLink>
 							</li>
@@ -87,7 +116,12 @@ const Navbar = () => {
 								<NavLink to='/liked-artifacts'>Liked Artifacts</NavLink>
 							</li>
 							<li>
-								<button className='btn btn-neutral'>Logout</button>
+								<button
+									onClick={handleLogout}
+									className='btn btn-neutral'
+								>
+									Logout
+								</button>
 							</li>
 						</ul>
 					</div>
