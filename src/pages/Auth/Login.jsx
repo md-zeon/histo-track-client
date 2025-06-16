@@ -1,7 +1,9 @@
-import { FaGoogle } from "react-icons/fa";
+import { useState } from "react";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Login = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	return (
 		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
 			<div className='card-body'>
@@ -19,13 +21,19 @@ const Login = () => {
 					<div className='relative'>
 						<label className='label'>Password</label>
 						<input
-							type='password'
+							type={showPassword ? "text" : "password"}
 							name='password'
 							className='input'
 							placeholder='Password'
 							autoComplete='current-password'
 							required
 						/>
+						<span
+							onClick={() => setShowPassword(!showPassword)}
+							className='absolute top-7 z-10 right-8 text-lg cursor-pointer'
+						>
+							{showPassword ? <FaEyeSlash /> : <FaEye />}
+						</span>
 					</div>
 					<div>
 						<p>

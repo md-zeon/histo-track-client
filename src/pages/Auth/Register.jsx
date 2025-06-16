@@ -1,10 +1,12 @@
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const Register = () => {
 	const { createUser, updateUserProfile } = useAuth();
+	const [showPassword, setShowPassword] = useState(false);
 	const handleRegister = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -12,7 +14,7 @@ const Register = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const photoURL = form.photoURL.value;
-        console.log(name, email, password, photoURL);
+		console.log(name, email, password, photoURL);
 
 		if (password.length < 6) {
 			toast.error("Password must be at least 6 characters");
@@ -82,13 +84,19 @@ const Register = () => {
 					<div className='relative'>
 						<label className='label'>Password</label>
 						<input
-							type='password'
+							type={showPassword ? "text" : "password"}
 							name='password'
 							className='input'
 							placeholder='Password'
 							autoComplete='current-password'
 							required
 						/>
+						<span
+							onClick={() => setShowPassword(!showPassword)}
+							className='absolute top-7 z-10 right-8 text-lg cursor-pointer'
+						>
+							{showPassword ? <FaEyeSlash /> : <FaEye />}
+						</span>
 					</div>
 					<div>
 						<p>
