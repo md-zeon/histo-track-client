@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+	const { user } = useAuth();
 	const links = (
 		<>
 			<li>
@@ -9,9 +11,11 @@ const Navbar = () => {
 			<li>
 				<NavLink to='/all-artifacts'>All Artifacts</NavLink>
 			</li>
-			<li>
-				<NavLink to='/add-artifact'>Add Artifact</NavLink>
-			</li>
+			{user && (
+				<li>
+					<NavLink to='/add-artifact'>Add Artifact</NavLink>
+				</li>
+			)}
 		</>
 	);
 	return (
@@ -56,44 +60,45 @@ const Navbar = () => {
 			<div className='navbar-center hidden lg:flex'>
 				<ul className='menu menu-horizontal px-1'>{links}</ul>
 			</div>
-			<div className='navbar-end gap-5'>
-				<div className='dropdown dropdown-end'>
-					<div
-						tabIndex={0}
-						role='button'
-						className='btn btn-ghost btn-circle avatar'
-					>
-						<div className='w-10 rounded-full'>
-							<img
-								alt='Tailwind CSS Navbar component'
-								src='https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp'
-							/>
+			<div className='navbar-end'>
+				{user ? (
+					<div className='dropdown dropdown-end'>
+						<div
+							tabIndex={0}
+							role='button'
+							className='btn btn-ghost btn-circle avatar'
+						>
+							<div className='w-10 rounded-full'>
+								<img
+									alt={user?.displayName}
+									src={user?.photoURL}
+								/>
+							</div>
 						</div>
+						<ul
+							tabIndex={0}
+							className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2'
+						>
+							<li className="text-xs px-2 font-bold">{user?.displayName}</li>
+							<li>
+								<NavLink to='/my-artifacts'>My Artifacts</NavLink>
+							</li>
+							<li>
+								<NavLink to='/liked-artifacts'>Liked Artifacts</NavLink>
+							</li>
+							<li>
+								<button className='btn btn-neutral'>Logout</button>
+							</li>
+						</ul>
 					</div>
-					<ul
-						tabIndex={0}
-						className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'
+				) : (
+					<Link
+						to='/login'
+						className='btn btn-primary'
 					>
-						<li>
-							<a className='justify-between'>
-								Profile
-								<span className='badge'>New</span>
-							</a>
-						</li>
-						<li>
-							<a>Settings</a>
-						</li>
-						<li>
-							<a>Logout</a>
-						</li>
-					</ul>
-				</div>
-				<Link
-					to='/login'
-					className='btn btn-primary'
-				>
-					Login
-				</Link>
+						Login
+					</Link>
+				)}
 			</div>
 		</nav>
 	);
