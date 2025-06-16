@@ -43,15 +43,18 @@ const Navbar = () => {
 						tabIndex={0}
 						className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'
 					>
-                        {links}
+						{links}
 					</ul>
 				</div>
-				<Link to='/' className='btn btn-ghost text-xl'>HistoTrack</Link>
+				<Link
+					to='/'
+					className='btn btn-ghost text-xl'
+				>
+					HistoTrack
+				</Link>
 			</div>
 			<div className='navbar-center hidden lg:flex'>
-				<ul className='menu menu-horizontal px-1'>
-                    {links}
-				</ul>
+				<ul className='menu menu-horizontal px-1'>{links}</ul>
 			</div>
 			<div className='navbar-end gap-5'>
 				<div className='dropdown dropdown-end'>
@@ -85,7 +88,12 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				<Link to="/login" className='btn btn-primary'>Login</Link>
+				<Link
+					to='/login'
+					className='btn btn-primary'
+				>
+					Login
+				</Link>
 			</div>
 		</nav>
 	);

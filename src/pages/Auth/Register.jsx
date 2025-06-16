@@ -1,12 +1,58 @@
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
+	const { createUser, updateUserProfile } = useAuth();
+	const handleRegister = (e) => {
+		e.preventDefault();
+		const form = e.target;
+		const name = form.name.value;
+		const email = form.email.value;
+		const password = form.password.value;
+		const photoURL = form.photoURL.value;
+        console.log(name, email, password, photoURL);
+
+		if (password.length < 6) {
+			toast.error("Password must be at least 6 characters");
+			return;
+		}
+		if (!/[A-Z]/.test(password)) {
+			toast.error("Password must contain at least one uppercase letter");
+			return;
+		}
+		if (!/[a-z]/.test(password)) {
+			toast.error("Password must contain at least one lowercase letter");
+			return;
+		}
+
+		createUser(email, password)
+			.then((res) => {
+				console.log(res.user);
+				updateUserProfile(name, photoURL)
+					.then(() => {
+						toast.success("User created successfully");
+						form.reset();
+						// navigate to login page
+					})
+					.catch((err) => {
+						const errorMessage = err.message;
+						toast.error(errorMessage);
+					});
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
 	return (
 		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
 			<div className='card-body'>
 				<h1 className='text-4xl font-bold my-4 text-center'>Register Now</h1>
-				<form className='fieldset'>
+				<form
+					className='fieldset'
+					onSubmit={handleRegister}
+				>
 					<label className='label'>Name</label>
 					<input
 						type='text'
@@ -55,7 +101,11 @@ const Register = () => {
 							</Link>
 						</p>
 					</div>
-					<button className='btn btn-neutral mt-4'>Register</button>
+					<input
+						type='submit'
+						className='btn btn-neutral mt-4'
+						value='Register'
+					/>
 				</form>
 				<div className='divider'>OR</div>
 				<div>
