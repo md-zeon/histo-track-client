@@ -118,7 +118,7 @@ const AllArtifacts = () => {
 									</div>
 
 									<Link
-										to={`/artifact/${artifact._id}`}
+										to={`/artifacts/${artifact._id}`}
 										className='btn btn-outline btn-sm rounded-full'
 									>
 										View Details
