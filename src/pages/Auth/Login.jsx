@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../../components/SocialLogin";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-	const { signInUser } = useAuth();
+    const { signInUser } = useAuth();
 	const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
 	const handleLogin = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -20,7 +23,7 @@ const Login = () => {
 				console.log(user);
 				toast.success(`Login successful! Welcome ${user.displayName}`);
 				form.reset();
-				// navigate to intended page
+                navigate(location?.state || "/");
 			})
 			.catch((error) => {
 				console.log(error);

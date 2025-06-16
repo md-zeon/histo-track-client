@@ -13,11 +13,9 @@ const Navbar = () => {
 			<li>
 				<NavLink to='/all-artifacts'>All Artifacts</NavLink>
 			</li>
-			{user && (
-				<li>
-					<NavLink to='/add-artifact'>Add Artifact</NavLink>
-				</li>
-			)}
+			<li>
+				<NavLink to='/add-artifact'>Add Artifact</NavLink>
+			</li>
 		</>
 	);
 

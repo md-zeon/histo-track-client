@@ -1,5 +1,5 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
@@ -8,6 +8,9 @@ import SocialLogin from "../../components/SocialLogin";
 const Register = () => {
 	const { createUser, updateUserProfile } = useAuth();
 	const [showPassword, setShowPassword] = useState(false);
+	const navigate = useNavigate();
+	const location = useLocation();
+
 	const handleRegister = (e) => {
 		e.preventDefault();
 		const form = e.target;
@@ -37,7 +40,7 @@ const Register = () => {
 					.then(() => {
 						toast.success("User created successfully");
 						form.reset();
-						// navigate to login page
+						navigate(location?.state || "/");
 					})
 					.catch((err) => {
 						const errorMessage = err.message;
