@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
-import App from "../App";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import Loader from "../components/ui/Loader";
 import AllArtifacts from "../pages/Artifacts/AllArtifacts";
 import PrivateRoute from "../context/PrivateRoute";
 import AddArtifact from "../pages/Artifacts/AddArtifact";
+import Home from "../pages/Home/Home";
 
 const router = createBrowserRouter([
 	{
@@ -16,11 +16,13 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				Component: App,
+				Component: Home,
 			},
 			{
 				path: "/all-artifacts",
 				Component: AllArtifacts,
+				loader: () => fetch("http://localhost:3000/artifacts"),
+				hydrateFallbackElement: <Loader />,
 			},
 			{
 				path: "/add-artifact",

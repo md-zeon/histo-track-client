@@ -202,7 +202,7 @@ const AddArtifact = () => {
 					/>
 				</div>
 
-				{/* Adder Name (Disabled) */}
+				{/* Adder Name */}
 				<div>
 					<label className='label'>
 						<span className='label-text flex items-center gap-1'>
@@ -217,7 +217,7 @@ const AddArtifact = () => {
 					/>
 				</div>
 
-				{/* Adder Email (Disabled) */}
+				{/* Adder Email */}
 				<div>
 					<label className='label'>
 						<span className='label-text flex items-center gap-1'>
