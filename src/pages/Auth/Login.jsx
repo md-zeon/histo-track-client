@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
+import SocialLogin from "../../components/SocialLogin";
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -50,10 +51,7 @@ const Login = () => {
 				</form>
 				<div className='divider'>OR</div>
 				<div>
-					<button className='btn btn-neutral btn-outline w-full'>
-						{" "}
-						<FaGoogle /> Login with Google
-					</button>
+                    <SocialLogin />
 				</div>
 			</div>
 		</div>
