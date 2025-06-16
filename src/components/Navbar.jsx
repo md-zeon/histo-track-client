@@ -79,7 +79,7 @@ const Navbar = () => {
 				</div>
 				<Link
 					to='/'
-					className='btn btn-ghost text-xl'
+					className='btn btn-ghost text-xl text-primary font-bold'
 				>
 					HistoTrack
 				</Link>
