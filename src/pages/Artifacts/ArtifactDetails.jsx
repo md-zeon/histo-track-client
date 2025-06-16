@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FaArrowCircleLeft, FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
