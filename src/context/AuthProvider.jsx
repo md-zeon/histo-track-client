@@ -5,6 +5,8 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState("hello");
     const [loading, setLoading] = useState(true);
 
+    
+
     const authInfo = {
         user,
         loading,

@@ -1,12 +1,21 @@
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router";
 
-const Login = () => {
+const Register = () => {
 	return (
 		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
 			<div className='card-body'>
-				<h1 className='text-4xl font-bold my-4 text-center'>Login Now</h1>
+				<h1 className='text-4xl font-bold my-4 text-center'>Register Now</h1>
 				<form className='fieldset'>
+					<label className='label'>Name</label>
+					<input
+						type='text'
+						name='name'
+						className='input'
+						placeholder='Name'
+						required
+					/>
+
 					<label className='label'>Email</label>
 					<input
 						type='email'
@@ -14,6 +23,14 @@ const Login = () => {
 						className='input'
 						placeholder='Email'
 						autoComplete='email'
+						required
+					/>
+					<label className='label'>photoURL</label>
+					<input
+						type='text'
+						name='photoURL'
+						className='input'
+						placeholder='Photo URL'
 						required
 					/>
 					<div className='relative'>
@@ -29,16 +46,16 @@ const Login = () => {
 					</div>
 					<div>
 						<p>
-							Don't have an account? Please{" "}
+							Already have an account? Please{" "}
 							<Link
-								to='/register'
+								to='/login'
 								className='text-primary underline'
 							>
-								Register
+								Login
 							</Link>
 						</p>
 					</div>
-					<button className='btn btn-neutral mt-4'>Login</button>
+					<button className='btn btn-neutral mt-4'>Register</button>
 				</form>
 				<div className='divider'>OR</div>
 				<div>
@@ -52,4 +69,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;
