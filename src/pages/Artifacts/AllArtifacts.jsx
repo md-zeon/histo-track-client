@@ -11,14 +11,34 @@ import {
 	FaSearch,
 } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router";
+import Loader from "../../components/ui/Loader";
 
 const AllArtifacts = () => {
 	const [artifacts, setArtifacts] = useState(useLoaderData() || []);
+	const [loading, setLoading] = useState(false);
 	const searchRef = useRef(null);
 	const handleSearch = (e) => {
 		e.preventDefault();
+		const searchText = searchRef.current.value;
+		setLoading(true);
 
+		axios
+			.get(`http://localhost:3000/artifacts?search=${searchText}`)
+			.then((res) => {
+				if (res.data) {
+					setArtifacts(res.data);
+				}
+				setLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+				setLoading(false);
+			});
 	};
+
+	if (loading) {
+		return <Loader />;
+	}
 
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-10'>
@@ -28,24 +48,19 @@ const AllArtifacts = () => {
 
 			<form
 				onSubmit={handleSearch}
-				className='join'
+				className='mx-auto w-fit'
 			>
-				<div>
-					<div>
-						<label className='input'>
-							<FaSearch className='mr-2' />
-							<input
-								type='search'
-								ref={searchRef}
-								required
-								placeholder='Search'
-							/>
-						</label>
-					</div>
-				</div>
-				<div className='indicator'>
-					<span className='indicator-item badge badge-secondary'>new</span>
-					<button className='btn join-item'>Search</button>
+				<div className='join mb-12'>
+					<label className='input flex-1 max-w-xl w-full md:w-lg sm:w-md rounded-s-2xl'>
+						<FaSearch className='mr-1' />
+						<input
+							type='search'
+							ref={searchRef}
+							placeholder='Search'
+						/>
+					</label>
+
+					<button className='btn join-item btn-primary rounded-e-2xl'>Search</button>
 				</div>
 			</form>
 
