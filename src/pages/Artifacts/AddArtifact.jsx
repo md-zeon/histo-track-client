@@ -1,12 +1,13 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { FiEdit, FiImage, FiType, FiGlobe, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiMail } from "react-icons/fi";
-import axios from "axios";
 import { toast } from "react-toastify";
 import SiteTitle from "../../components/SiteTitle";
+import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const AddArtifact = () => {
 	const { user } = useAuth();
+	const { createArtifactPromise } = useArtifactsApi();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -22,9 +23,9 @@ const AddArtifact = () => {
 			likes: 0,
 		};
 		console.log(artifact);
-		axios.post("http://localhost:3000/artifacts", artifact).then((res) => {
-			console.log(res.data);
-			if (res.data.insertedId) {
+
+		createArtifactPromise(artifact).then((res) => {
+			if (res.insertedId) {
 				Swal.fire({
 					title: "Success!",
 					text: "Artifact added successfully!",
