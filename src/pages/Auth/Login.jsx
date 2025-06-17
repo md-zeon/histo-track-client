@@ -17,11 +17,10 @@ const Login = () => {
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
 		signInUser(email, password)
 			.then((result) => {
 				const user = result.user;
-				console.log(user);
+				// console.log(user);
 				toast.success(`Login successful! Welcome ${user.displayName}`);
 				form.reset();
                 navigate(location?.state || "/");
@@ -79,7 +78,7 @@ const Login = () => {
 					</div>
 					<input
 						type='submit'
-						className='btn btn-neutral mt-4'
+						className='btn btn-primary mt-4'
 						value='Login'
 					/>
 				</form>

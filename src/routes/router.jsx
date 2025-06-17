@@ -23,13 +23,13 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				Component: Home,
-				loader: () => fetch("http://localhost:3000/artifacts?limit=6&sort=likes"),
+				loader: () => fetch("https://histotrack-server.vercel.app/artifacts?limit=6&sort=likes"),
 				hydrateFallbackElement: <Loader />,
 			},
 			{
 				path: "/all-artifacts",
 				Component: AllArtifacts,
-				loader: () => fetch("http://localhost:3000/artifacts"),
+				loader: () => fetch("https://histotrack-server.vercel.app/artifacts"),
 				hydrateFallbackElement: <Loader />,
 			},
 			{
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
 						<ArtifactDetails />
 					</PrivateRoute>
 				),
-				loader: ({ params }) => fetch(`http://localhost:3000/artifacts/${params.id}`),
+				loader: ({ params }) => fetch(`https://histotrack-server.vercel.app/artifacts/${params.id}`),
 				hydrateFallbackElement: <Loader />,
 			},
 			{
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
 						<UpdateArtifact />
 					</PrivateRoute>
 				),
-				loader: ({ params }) => fetch(`http://localhost:3000/artifacts/${params.id}`),
+				loader: ({ params }) => fetch(`https://histotrack-server.vercel.app/artifacts/${params.id}`),
 				hydrateFallbackElement: <Loader />,
 			},
 			{

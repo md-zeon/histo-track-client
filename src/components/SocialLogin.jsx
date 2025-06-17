@@ -10,7 +10,7 @@ const SocialLogin = () => {
 	const handleGoogleLogin = () => {
 		signInWithGoogle()
 			.then((res) => {
-				console.log(res.user);
+				// console.log(res.user);
 				toast.success(`Welcome ${res.user.displayName}`);
 				navigate(location?.state || "/");
 			})

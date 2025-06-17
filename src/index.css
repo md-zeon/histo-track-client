@@ -19,9 +19,9 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-	@apply !text-primary;
+	@apply !text-amber-400;
 }
 
 .swiper-pagination-bullet-active {
-	@apply !bg-primary;
+	@apply !bg-amber-400;
 }

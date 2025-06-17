@@ -22,7 +22,7 @@ const AllArtifacts = () => {
 		const searchText = searchRef.current.value;
 		setLoading(true);
 
-		fetch(`http://localhost:3000/artifacts?search=${searchText}`)
+		fetch(`https://histotrack-server.vercel.app/artifacts?search=${searchText}`)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data) {

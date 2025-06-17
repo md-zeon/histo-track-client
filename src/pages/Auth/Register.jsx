@@ -19,7 +19,6 @@ const Register = () => {
 		const email = form.email.value;
 		const password = form.password.value;
 		const photoURL = form.photoURL.value;
-		console.log(name, email, password, photoURL);
 
 		if (password.length < 6) {
 			toast.error("Password must be at least 6 characters");
@@ -36,7 +35,7 @@ const Register = () => {
 
 		createUser(email, password)
 			.then((res) => {
-				console.log(res.user);
+				// console.log(res.user);
 				updateUserProfile(name, photoURL)
 					.then(() => {
 						toast.success("User created successfully");
@@ -50,6 +49,7 @@ const Register = () => {
 			})
 			.catch((err) => {
 				console.error(err);
+				toast.error(err.message);
 			});
 	};
 	return (
@@ -117,7 +117,7 @@ const Register = () => {
 					</div>
 					<input
 						type='submit'
-						className='btn btn-neutral mt-4'
+						className='btn btn-primary mt-4'
 						value='Register'
 					/>
 				</form>

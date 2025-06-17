@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FaClock, FaMapPin } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const slides = [
 	{
@@ -41,6 +42,7 @@ const slides = [
 ];
 
 const Banner = () => {
+	const navigate = useNavigate(); 
 	return (
 		<div className='w-full mt-3'>
 			<Swiper
@@ -72,6 +74,7 @@ const Banner = () => {
 										<FaMapPin /> {slide.location}
 									</span>
 								</div>
+								<button onClick={() => navigate('/all-artifacts')} className='btn btn-secondary text-amber-400 mt-4'>Explore</button>
 							</div>
 						</div>
 					</SwiperSlide>

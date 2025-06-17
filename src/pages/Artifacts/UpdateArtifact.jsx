@@ -19,7 +19,7 @@ const UpdateArtifact = () => {
 		const updatedArtifact = {
 			...data,
 		};
-		console.log(updatedArtifact);
+		// console.log(updatedArtifact);
 		Swal.fire({
 			title: "Are you sure?",
 
@@ -33,7 +33,7 @@ const UpdateArtifact = () => {
 			if (result.isConfirmed) {
 				updateArtifactPromise(artifact._id, updatedArtifact)
 					.then((res) => {
-						console.log(res);
+						// console.log(res);
 						if (res.modifiedCount) {
 							Swal.fire({
 								title: "Success!",

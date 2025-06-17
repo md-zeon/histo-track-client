@@ -1,6 +1,17 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-import { FiEdit, FiImage, FiType, FiGlobe, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiMail } from "react-icons/fi";
+import {
+	FiEdit,
+	FiImage,
+	FiType,
+	FiGlobe,
+	FiClock,
+	FiUser,
+	FiMapPin,
+	FiBookOpen,
+	FiCalendar,
+	FiMail,
+} from "react-icons/fi";
 import { toast } from "react-toastify";
 import SiteTitle from "../../components/SiteTitle";
 import useArtifactsApi from "../../hooks/useArtifactsApi";
@@ -22,28 +33,30 @@ const AddArtifact = () => {
 			adderEmail: user?.email || "anonymous@example.com",
 			likes: 0,
 		};
-		console.log(artifact);
+		// console.log(artifact);
 
-		createArtifactPromise(artifact).then((res) => {
-			if (res.insertedId) {
-				Swal.fire({
-					title: "Success!",
-					text: "Artifact added successfully!",
-					icon: "success",
-					confirmButtonText: "OK",
-				});
-			} else {
-				Swal.fire({
-					title: "Error!",
-					text: "Something went wrong!",
-					icon: "error",
-					confirmButtonText: "OK",
-				});
-			}
-		}).catch((err) => {
-			console.log(err);
-			toast.error(err.message	);
-		})
+		createArtifactPromise(artifact)
+			.then((res) => {
+				if (res.insertedId) {
+					Swal.fire({
+						title: "Success!",
+						text: "Artifact added successfully!",
+						icon: "success",
+						confirmButtonText: "OK",
+					});
+				} else {
+					Swal.fire({
+						title: "Error!",
+						text: "Something went wrong!",
+						icon: "error",
+						confirmButtonText: "OK",
+					});
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				toast.error(err.message);
+			});
 	};
 
 	return (
