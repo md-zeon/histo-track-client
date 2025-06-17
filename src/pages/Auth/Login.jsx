@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../../components/SocialLogin";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import SiteTitle from "../../components/SiteTitle";
 
 const Login = () => {
     const { signInUser } = useAuth();
@@ -32,6 +33,7 @@ const Login = () => {
 	};
 	return (
 		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
+			<SiteTitle>Login</SiteTitle>
 			<div className='card-body'>
 				<h1 className='text-4xl font-bold my-4 text-center'>Login Now</h1>
 				<form

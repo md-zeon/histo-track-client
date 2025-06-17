@@ -4,6 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import SiteTitle from "../../components/SiteTitle";
 
 const LikedArtifacts = () => {
 	const [likedArtifacts, setLikedArtifacts] = useState([]);
@@ -25,6 +26,7 @@ const LikedArtifacts = () => {
 
 	return (
 		<div className='max-w-6xl mx-auto p-6'>
+			<SiteTitle>Liked Artifacts</SiteTitle>
 			<h1 className='text-3xl font-bold mb-6'>Your Liked Artifacts</h1>
 			{likedArtifacts.length === 0 ? (
 				<p className='text-gray-600'>You haven't liked any artifacts yet.</p>

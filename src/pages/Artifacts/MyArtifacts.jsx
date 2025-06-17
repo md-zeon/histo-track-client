@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { CiWarning } from "react-icons/ci";
 import Loader from "../../components/ui/Loader";
+import SiteTitle from "../../components/SiteTitle";
 
 const MyArtifacts = () => {
 	const [myArtifacts, setMyArtifacts] = useState([]);
@@ -66,6 +67,7 @@ const MyArtifacts = () => {
 	if (myArtifacts.length === 0) {
 		return (
 			<div className='min-h-[50vh] flex items-center justify-center text-center'>
+				<SiteTitle>No Artifacts Found</SiteTitle>
 				<div className='flex flex-col gap-3 text-xl font-semibold text-gray-600'>
 					<div className='flex justify-center'>
 						<CiWarning className='text-6xl' />
@@ -79,6 +81,7 @@ const MyArtifacts = () => {
 
 	return (
 		<div className='max-w-6xl mx-auto p-6 space-y-6'>
+			<SiteTitle>My Artifacts</SiteTitle>
 			<h2 className='text-3xl font-bold text-center mb-6'> My Artifacts</h2>
 			<div className='overflow-x-auto'>
 				<table className='table w-full table-zebra border border-base-300'>

@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router";
 import Loader from "../../components/ui/Loader";
+import SiteTitle from "../../components/SiteTitle";
 
 const AllArtifacts = () => {
 	const [artifacts, setArtifacts] = useState(useLoaderData() || []);
@@ -38,6 +39,7 @@ const AllArtifacts = () => {
 
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-10'>
+			<SiteTitle>All Artifacts</SiteTitle>
 			<h2 className='text-3xl font-bold text-center mb-12'>
 				<FaLandmark className='inline' /> All Artifacts
 			</h2>

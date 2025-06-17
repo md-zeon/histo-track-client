@@ -4,6 +4,7 @@ import { FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import SiteTitle from "../../components/SiteTitle";
 
 const ArtifactDetails = () => {
 	const artifactData = useLoaderData();
@@ -55,6 +56,7 @@ const ArtifactDetails = () => {
 
 	return (
 		<div className='max-w-4xl mx-auto p-6'>
+			<SiteTitle>{artifact.name}</SiteTitle>
 			<div className='card bg-base-100 shadow-xl overflow-hidden'>
 				<figure>
 					<img

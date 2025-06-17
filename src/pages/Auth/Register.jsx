@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import SocialLogin from "../../components/SocialLogin";
+import SiteTitle from "../../components/SiteTitle";
 
 const Register = () => {
 	const { createUser, updateUserProfile } = useAuth();
@@ -53,6 +54,7 @@ const Register = () => {
 	};
 	return (
 		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
+			<SiteTitle>Register</SiteTitle>
 			<div className='card-body'>
 				<h1 className='text-4xl font-bold my-4 text-center'>Register Now</h1>
 				<form

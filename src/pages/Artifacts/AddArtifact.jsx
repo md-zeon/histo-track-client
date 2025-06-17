@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import { FiEdit, FiImage, FiType, FiGlobe, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiMail } from "react-icons/fi";
 import axios from "axios";
 import { toast } from "react-toastify";
+import SiteTitle from "../../components/SiteTitle";
 
 const AddArtifact = () => {
 	const { user } = useAuth();
@@ -46,6 +47,7 @@ const AddArtifact = () => {
 
 	return (
 		<div className='max-w-4xl mx-auto px-4 py-10'>
+			<SiteTitle>Add Artifact</SiteTitle>
 			<h2 className='text-3xl font-bold text-center mb-8'>
 				<FiGlobe className='inline' /> Add Historical Artifact
 			</h2>

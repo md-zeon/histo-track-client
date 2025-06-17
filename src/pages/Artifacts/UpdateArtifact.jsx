@@ -3,6 +3,7 @@ import { FiEdit, FiImage, FiType, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalen
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useLoaderData } from "react-router";
+import SiteTitle from "../../components/SiteTitle";
 
 const UpdateArtifact = () => {
 	const artifact = useLoaderData();
@@ -66,6 +67,7 @@ const UpdateArtifact = () => {
 
 	return (
 		<div className='max-w-4xl mx-auto px-4 py-10'>
+			<SiteTitle>Update Artifact</SiteTitle>
 			<h2 className='text-3xl font-bold text-center mb-8'>
 				<FiEdit className='inline' /> Update Artifact Info
 			</h2>

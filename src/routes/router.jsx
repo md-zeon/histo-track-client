@@ -11,12 +11,14 @@ import ArtifactDetails from "../pages/Artifacts/ArtifactDetails";
 import LikedArtifacts from "../pages/Artifacts/LikedArtifacts";
 import MyArtifacts from "../pages/Artifacts/MyArtifacts";
 import UpdateArtifact from "../pages/Artifacts/UpdateArtifact";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		Component: MainLayout,
 		hydrateFallbackElement: <Loader />,
+		errorElement: <NotFound></NotFound>,
 		children: [
 			{
 				path: "/",
