@@ -1,6 +1,5 @@
 import useAxiosSecure from "./useAxiosSecure";
 
-
 const useArtifactsApi = () => {
 	const axiosSecure = useAxiosSecure();
 
@@ -20,20 +19,19 @@ const useArtifactsApi = () => {
 	};
 
 	// Update Toggle like an artifact
-	const toggleLikeArtifactPromise = (id, email) => {
-		return axiosSecure.patch(`/artifacts/toggle-like/${id}`, { email }).then((res) => res.data);
+	const toggleLikeArtifactPromise = (id) => {
+		return axiosSecure.patch(`/artifacts/toggle-like/${id}`).then((res) => res.data);
 	};
 
-	//  Get liked artifacts 
-	const getLikedArtifactsPromise = (email) => {
-		return axiosSecure.get(`/liked-artifacts?email=${email}`).then((res) => res.data);
+	//  Get liked artifacts
+	const getLikedArtifactsPromise = () => {
+		return axiosSecure.get(`/liked-artifacts`).then((res) => res.data);
 	};
 
 	// Delete an artifact
 	const deleteArtifactPromise = (id) => {
 		return axiosSecure.delete(`/artifacts/${id}`).then((res) => res.data);
 	};
-	
 
 	return {
 		createArtifactPromise,

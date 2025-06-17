@@ -17,8 +17,7 @@ const ArtifactDetails = () => {
 	const { getLikedArtifactsPromise, toggleLikeArtifactPromise } = useArtifactsApi();
 
 	useEffect(() => {
-		if (!userEmail) return;
-		getLikedArtifactsPromise(userEmail)
+		getLikedArtifactsPromise()
 			.then((res) => {
 				const likedArtifacts = res;
 				const isLiked = likedArtifacts.some((a) => a._id === artifact._id);
@@ -28,7 +27,7 @@ const ArtifactDetails = () => {
 				console.error("Failed to fetch liked artifacts:", err);
 				toast.error("Could not fetch liked status.");
 			});
-	}, [userEmail, artifact._id]);
+	}, [artifact._id]);
 
 	const toggleLike = () => {
 		if (!userEmail) {
@@ -36,7 +35,7 @@ const ArtifactDetails = () => {
 			return;
 		}
 
-		toggleLikeArtifactPromise(artifact._id, userEmail)
+		toggleLikeArtifactPromise(artifact._id)
 			.then((res) => {
 				if (res.liked === true) {
 					setArtifact({ ...artifact, likes: artifact.likes + 1 });

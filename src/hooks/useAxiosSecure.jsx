@@ -21,11 +21,12 @@ const useAxiosSecure = () => {
 		},
 		(error) => {
 			console.log("Error in interceptor", error);
-			if (error.status === 401 || error.status === 403) {
+			const status = error?.response?.status || error.status;
+			if (status === 401 || status === 403) {
 				// logout user
 				logoutUser()
 					.then(() => {
-						console.log(`Signed Out User for ${error.status} Status Code`);
+						console.log(`Signed Out User for ${status} Status Code`);
 					})
 					.catch((err) => {
 						console.log(err);

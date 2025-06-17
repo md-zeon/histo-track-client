@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router";
-import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import SiteTitle from "../../components/SiteTitle";
 import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const LikedArtifacts = () => {
 	const [likedArtifacts, setLikedArtifacts] = useState([]);
-	const { user } = useAuth();
-	const userEmail = user?.email;
 	const navigate = useNavigate();
 	const { getLikedArtifactsPromise } = useArtifactsApi();
 
 	useEffect(() => {
-		if (!userEmail) return;
-		getLikedArtifactsPromise(userEmail)
+		getLikedArtifactsPromise()
 			.then((res) => {
 				setLikedArtifacts(res);
 			})
@@ -23,7 +19,7 @@ const LikedArtifacts = () => {
 				console.error("Failed to fetch liked artifacts:", err);
 				toast.error("Could not fetch liked artifacts.");
 			});
-	}, [userEmail]);
+	}, []);
 
 	return (
 		<div className='max-w-6xl mx-auto p-6'>
