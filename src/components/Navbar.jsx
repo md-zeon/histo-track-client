@@ -52,7 +52,7 @@ const Navbar = () => {
 					<div
 						tabIndex={0}
 						role='button'
-						className='btn btn-ghost lg:hidden'
+						className='btn btn-ghost px-2 lg:hidden'
 					>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
@@ -79,7 +79,7 @@ const Navbar = () => {
 				</div>
 				<Link
 					to='/'
-					className='btn btn-ghost text-xl text-primary font-bold'
+					className='btn btn-ghost pl-0 text-xl text-primary font-bold'
 				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
