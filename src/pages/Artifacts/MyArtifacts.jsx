@@ -38,6 +38,8 @@ const MyArtifacts = () => {
 			showCancelButton: true,
 			confirmButtonText: "Yes, delete it!",
 			cancelButtonText: "Cancel",
+			confirmButtonColor: "#d33",
+			cancelButtonColor: "#3085d6",
 		}).then((result) => {
 			if (result.isConfirmed) {
 				axios
