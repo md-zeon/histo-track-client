@@ -1,12 +1,13 @@
 import Swal from "sweetalert2";
 import { FiEdit, FiImage, FiType, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiMail } from "react-icons/fi";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useLoaderData } from "react-router";
 import SiteTitle from "../../components/SiteTitle";
+import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const UpdateArtifact = () => {
 	const artifact = useLoaderData();
+	const { updateArtifactPromise } = useArtifactsApi();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,11 +31,10 @@ const UpdateArtifact = () => {
 			confirmButtonText: "Yes, Update it!",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				axios
-					.patch(`http://localhost:3000/artifacts/${artifact._id}`, updatedArtifact)
+				updateArtifactPromise(artifact._id, updatedArtifact)
 					.then((res) => {
-						console.log(res.data);
-						if (res.data.modifiedCount) {
+						console.log(res);
+						if (res.modifiedCount) {
 							Swal.fire({
 								title: "Success!",
 								text: "Artifact Updated successfully!",

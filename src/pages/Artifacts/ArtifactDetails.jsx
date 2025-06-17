@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
 import SiteTitle from "../../components/SiteTitle";
+import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const ArtifactDetails = () => {
 	const artifactData = useLoaderData();
@@ -14,13 +14,13 @@ const ArtifactDetails = () => {
 	const { user } = useAuth();
 
 	const userEmail = user?.email;
+	const { getLikedArtifactsPromise, toggleLikeArtifactPromise } = useArtifactsApi();
 
 	useEffect(() => {
 		if (!userEmail) return;
-		axios
-			.get(`http://localhost:3000/liked-artifacts?email=${userEmail}`)
+		getLikedArtifactsPromise(userEmail)
 			.then((res) => {
-				const likedArtifacts = res.data;
+				const likedArtifacts = res;
 				const isLiked = likedArtifacts.some((a) => a._id === artifact._id);
 				setLiked(isLiked);
 			})
@@ -28,21 +28,21 @@ const ArtifactDetails = () => {
 				console.error("Failed to fetch liked artifacts:", err);
 				toast.error("Could not fetch liked status.");
 			});
-	}, [artifact._id, userEmail]);
+	}, [userEmail, artifact._id]);
 
 	const toggleLike = () => {
 		if (!userEmail) {
 			toast.warn("Please log in to like artifacts.");
 			return;
 		}
-		axios
-			.patch(`http://localhost:3000/artifacts/toggle-like/${artifact._id}`, { email: userEmail })
+
+		toggleLikeArtifactPromise(artifact._id, userEmail)
 			.then((res) => {
-				if (res.data.liked === true) {
+				if (res.liked === true) {
 					setArtifact({ ...artifact, likes: artifact.likes + 1 });
 					setLiked(true);
 					toast.success("Artifact liked!");
-				} else if (res.data.liked === false) {
+				} else if (res.liked === false) {
 					setArtifact({ ...artifact, likes: artifact.likes - 1 });
 					setLiked(false);
 					toast.info("Artifact disliked.");

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -8,20 +7,20 @@ import useAuth from "../../hooks/useAuth";
 import { CiWarning } from "react-icons/ci";
 import Loader from "../../components/ui/Loader";
 import SiteTitle from "../../components/SiteTitle";
+import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const MyArtifacts = () => {
 	const [myArtifacts, setMyArtifacts] = useState([]);
 	const { user } = useAuth();
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
-	console.log("Token in the context", user.accessToken);
+	const { getArtifactsByEmailPromise, deleteArtifactPromise } = useArtifactsApi();
 
 	useEffect(() => {
 		setLoading(true);
-		axios
-			.get(`http://localhost:3000/artifacts?email=${user.email}`)
+		getArtifactsByEmailPromise(user.email)
 			.then((res) => {
-				setMyArtifacts(res.data);
+				setMyArtifacts(res);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -44,10 +43,9 @@ const MyArtifacts = () => {
 			cancelButtonColor: "#3085d6",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				axios
-					.delete(`http://localhost:3000/artifacts/${id}`)
+				deleteArtifactPromise(id)
 					.then((res) => {
-						if (res.data.deletedCount) {
+						if (res.deletedCount) {
 							toast.success("Artifact deleted successfully");
 							setMyArtifacts(myArtifacts.filter((artifact) => artifact._id !== id));
 							navigate("/all-artifacts");

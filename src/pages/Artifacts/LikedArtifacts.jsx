@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import SiteTitle from "../../components/SiteTitle";
+import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const LikedArtifacts = () => {
 	const [likedArtifacts, setLikedArtifacts] = useState([]);
 	const { user } = useAuth();
 	const userEmail = user?.email;
 	const navigate = useNavigate();
+	const { getLikedArtifactsPromise } = useArtifactsApi();
 
 	useEffect(() => {
-		axios
-			.get(`http://localhost:3000/liked-artifacts?email=${userEmail}`)
+		if (!userEmail) return;
+		getLikedArtifactsPromise(userEmail)
 			.then((res) => {
-				setLikedArtifacts(res.data);
+				setLikedArtifacts(res);
 			})
 			.catch((err) => {
 				console.error("Failed to fetch liked artifacts:", err);

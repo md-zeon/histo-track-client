@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useRef, useState } from "react";
 import {
 	FaHeart,
@@ -23,11 +22,11 @@ const AllArtifacts = () => {
 		const searchText = searchRef.current.value;
 		setLoading(true);
 
-		axios
-			.get(`http://localhost:3000/artifacts?search=${searchText}`)
-			.then((res) => {
-				if (res.data) {
-					setArtifacts(res.data);
+		fetch(`http://localhost:3000/artifacts?search=${searchText}`)
+			.then((res) => res.json())
+			.then((data) => {
+				if (data) {
+					setArtifacts(data);
 				}
 				setLoading(false);
 			})

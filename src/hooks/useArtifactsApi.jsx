@@ -14,11 +14,6 @@ const useArtifactsApi = () => {
 		return axiosSecure.get(`/artifacts?email=${email}`).then((res) => res.data);
 	};
 
-
-	// Get a single artifact by ID
-	const getArtifactPromise = (id) => {
-		return axiosSecure.get(`/artifacts/${id}`).then((res) => res.data);
-	};
 	// Update an artifact
 	const updateArtifactPromise = (id, artifact) => {
 		return axiosSecure.patch(`/artifacts/${id}`, artifact).then((res) => res.data);
@@ -43,7 +38,6 @@ const useArtifactsApi = () => {
 	return {
 		createArtifactPromise,
 		getArtifactsByEmailPromise,
-		getArtifactPromise,
 		updateArtifactPromise,
 		toggleLikeArtifactPromise,
 		getLikedArtifactsPromise,
