@@ -14,6 +14,7 @@ const MyArtifacts = () => {
 	const { user } = useAuth();
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(true);
+	console.log("Token in the context", user.accessToken);
 
 	useEffect(() => {
 		setLoading(true);
