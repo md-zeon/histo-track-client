@@ -17,7 +17,7 @@ const MyArtifacts = () => {
 	const { getArtifactsByEmailPromise, deleteArtifactPromise } = useArtifactsApi();
 
 	useEffect(() => {
-		if(!user.email) return;
+		if(!user?.email) return;
 		setLoading(true);
 		getArtifactsByEmailPromise(user.email)
 			.then((res) => {

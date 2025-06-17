@@ -66,7 +66,7 @@ const Banner = () => {
 								<h2 className='text-4xl md:text-5xl font-bold mb-2'>{slide.title}</h2>
 								<h3 className='text-xl md:text-2xl font-semibold text-yellow-400 mb-4'>{slide.subtitle}</h3>
 								<p className='max-w-xl text-sm md:text-base mb-4'>{slide.description}</p>
-								<div className='flex items-center gap-6 text-sm md:text-base'>
+								<div className='flex flex-wrap items-center gap-6 text-sm md:text-base'>
 									<span className='flex items-center gap-1'>
 										<FaClock /> {slide.period}
 									</span>

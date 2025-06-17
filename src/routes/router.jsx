@@ -12,6 +12,8 @@ import LikedArtifacts from "../pages/Artifacts/LikedArtifacts";
 import MyArtifacts from "../pages/Artifacts/MyArtifacts";
 import UpdateArtifact from "../pages/Artifacts/UpdateArtifact";
 import NotFound from "../pages/NotFound";
+import Terms from "../pages/Terms";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 const router = createBrowserRouter([
 	{
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
 			{
 				path: "/register",
 				Component: Register,
+			},
+			{
+				path: "/terms",
+				Component: Terms,
+			},
+			{
+				path: "/privacy-policy",
+				Component: PrivacyPolicy,
 			},
 		],
 	},

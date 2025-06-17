@@ -148,7 +148,7 @@ const Footer = () => {
 
 					<div className='border-t border-gray-800 pt-8 text-center'>
 						<p>
-							&copy; {new Date().getFullYear()} Historical Artifacts Tracker. All rights reserved. |
+							&copy; {new Date().getFullYear()} Histo Track. All rights reserved. |
 							<NavLink
 								to='/privacy-policy'
 								className='hover:text-primary transition-colors ml-2'
@@ -160,7 +160,7 @@ const Footer = () => {
 								to='/terms'
 								className='hover:text-primary transition-colors ml-2'
 							>
-								Terms of Service
+								Terms & Conditions
 							</NavLink>
 						</p>
 					</div>

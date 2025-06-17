@@ -39,9 +39,12 @@ const AllArtifacts = () => {
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-10'>
 			<SiteTitle>All Artifacts</SiteTitle>
-			<h2 className='text-3xl font-bold text-center mb-12'>
+			<h2 className='text-3xl font-bold text-center mb-4'>
 				<FaLandmark className='inline' /> All Artifacts
 			</h2>
+			<p className='text-center text-gray-600 max-w-xl mx-auto mb-10'>
+				Browse through all shared historical artifacts. Use the search bar to find artifacts by their name.
+			</p>
 
 			<form
 				onSubmit={handleSearch}

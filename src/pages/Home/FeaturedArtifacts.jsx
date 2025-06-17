@@ -4,11 +4,14 @@ import { Link } from "react-router";
 const FeaturedArtifacts = ({ featuredArtifacts }) => {
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-16'>
-			<h2 className='text-4xl font-bold text-center mb-16 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-900'>
+			<h2 className='text-3xl font-bold text-center mb-4 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-900'>
 				Featured Historical Artifacts
 			</h2>
+			<p className='text-gray-600 mb-14 max-w-xl mx-auto text-center'>
+				A curated collection of the most fascinating and impactful historical items shared by our community.
+			</p>
 
-			<div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
 				{featuredArtifacts.map((artifact) => (
 					<div
 						key={artifact._id}
@@ -26,7 +29,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 								</span>
 							</div>
 							<div className='absolute bottom-3 left-3'>
-								<span className='badge shadow-md'>{artifact.createdAt || "Unknown"}</span>
+								<span className='badge badge-primary shadow-md'>{artifact.createdAt || "Unknown"}</span>
 							</div>
 						</div>
 
@@ -37,7 +40,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 							<div className='mt-4 flex items-center'>
 								<Link
 									to={`/artifacts/${artifact._id}`}
-									className='btn btn-neutral hover:bg-transparent hover:text-neutral transition duration-300'
+									className='btn btn-neutral w-full hover:bg-transparent hover:text-neutral transition duration-300'
 								>
 									<FaEye className='mr-1' /> View Details
 								</Link>

@@ -105,7 +105,7 @@ const ArtifactDetails = () => {
 							<span>{artifact.likes}</span>
 						</button>
 
-						<div className='badge badge-secondary badge-lg badge-outline badge-soft rounded-full px-4 py-2 shadow-inner'>
+						<div className='badge badge-secondary badge-lg badge-outline badge-soft rounded-full px-4 py-2 shadow-inner text-xs sm:text-base'>
 							<FaHeart className='text-red-500' /> Appreciation matters!
 						</div>
 					</div>

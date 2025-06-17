@@ -4,13 +4,18 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import SiteTitle from "../../components/SiteTitle";
 import useArtifactsApi from "../../hooks/useArtifactsApi";
+import useAuth from "../../hooks/useAuth";
+import Loader from "../../components/ui/Loader";
 
 const LikedArtifacts = () => {
 	const [likedArtifacts, setLikedArtifacts] = useState([]);
 	const navigate = useNavigate();
 	const { getLikedArtifactsPromise } = useArtifactsApi();
+	const [loading, setLoading] = useState(true);
+	const { user } = useAuth();
 
 	useEffect(() => {
+		if (!user?.email) return;
 		getLikedArtifactsPromise()
 			.then((res) => {
 				setLikedArtifacts(res);
@@ -18,8 +23,12 @@ const LikedArtifacts = () => {
 			.catch((err) => {
 				console.error("Failed to fetch liked artifacts:", err);
 				toast.error("Could not fetch liked artifacts.");
+			})
+			.finally(() => {
+				setLoading(false);
 			});
-	}, []);
+	}, [user.email]);
+	if (loading) return <Loader />;
 
 	return (
 		<div className='max-w-6xl mx-auto p-6'>

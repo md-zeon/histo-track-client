@@ -19,13 +19,17 @@ const HowItWorks = () => {
 	return (
 		<div className='max-w-5xl mx-auto px-4 py-16'>
 			<motion.h2
-				className='text-4xl font-bold text-center mb-12'
+				className='text-4xl font-bold text-center mb-2'
 				variants={titleVariants}
 				initial='hidden'
 				animate='visible'
 			>
 				How It Works
 			</motion.h2>
+			<p className='text-gray-600 mb-12 max-w-3xl mx-auto text-center'>
+				Explore how Histo Track connects history lovers around the world. Learn how to find, share, and contribute
+				historical artifacts in just a few easy steps.
+			</p>
 
 			<ul className='timeline timeline-snap-icon max-md:timeline-compact timeline-vertical'>
 				{/* Step 1 */}
