@@ -4,11 +4,11 @@ import { Link } from "react-router";
 const FeaturedArtifacts = ({ featuredArtifacts }) => {
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-16'>
-			<h2 className='text-4xl font-bold text-center mb-16 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary'>
+			<h2 className='text-4xl font-bold text-center mb-16 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-900'>
 				Featured Historical Artifacts
 			</h2>
 
-			<div className='grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 				{featuredArtifacts.map((artifact) => (
 					<div
 						key={artifact._id}
