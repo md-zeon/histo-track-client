@@ -23,6 +23,8 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				Component: Home,
+				loader: () => fetch("http://localhost:3000/artifacts?limit=6&sort=likes"),
+				hydrateFallbackElement: <Loader />,
 			},
 			{
 				path: "/all-artifacts",
