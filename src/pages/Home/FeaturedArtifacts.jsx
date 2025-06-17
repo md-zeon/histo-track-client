@@ -34,10 +34,10 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 							<h3 className='text-xl font-semibold text-gray-800'>{artifact.name}</h3>
 							<p className='text-gray-600 text-sm leading-relaxed'>{artifact.shortDescription?.slice(0, 100)}...</p>
 
-							<div className='mt-4 flex justify-between items-center'>
+							<div className='mt-4 flex items-center'>
 								<Link
 									to={`/artifacts/${artifact._id}`}
-									className='btn btn-sm w-full btn-primary'
+									className='btn btn-neutral hover:bg-transparent hover:text-neutral transition duration-300'
 								>
 									<FaEye className='mr-1' /> View Details
 								</Link>
@@ -50,7 +50,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 			<div className='flex justify-center mt-16'>
 				<Link
 					to='/all-artifacts'
-					className='btn btn-wide btn-outline hover:btn-primary transition duration-300'
+					className='btn btn-wide btn-outline btn-neutral transition duration-300'
 				>
 					See All Artifacts
 				</Link>

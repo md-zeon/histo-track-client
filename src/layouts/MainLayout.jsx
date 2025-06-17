@@ -6,15 +6,15 @@ import Footer from "../components/Footer";
 const MainLayout = () => {
 	const { state } = useNavigation();
 	return (
-		<div>
-			<header>
+		<>
+			<header className='px-2 max-w-7xl mx-auto sticky top-0 z-50'>
 				<Navbar />
 			</header>
-			<main className="min-h-screen">{state === "loading" ? <Loader /> : <Outlet />}</main>
-			<footer>
+			<main className='px-2 max-w-7xl mx-auto pb-10'>{state === "loading" ? <Loader /> : <Outlet />}</main>
+			<footer className="px-2">
 				<Footer />
 			</footer>
-		</div>
+		</>
 	);
 };
 

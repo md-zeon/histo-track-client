@@ -13,13 +13,13 @@ const Home = () => {
 			<SiteTitle>Home</SiteTitle>
 			{/* Banner Section */}
 			<Banner />
-
-			<HowItWorks />
 			{/* Featured Artifacts Section */}
 			<FeaturedArtifacts featuredArtifacts={featuredArtifacts} />
 			{/* How It Works Section */}
-
+			<HowItWorks />
+			{/* Top Contributors Section */}
 			<TopContributors />
+			{/* Call To Action Section */}
 			<CallToAction />
 		</div>
 	);

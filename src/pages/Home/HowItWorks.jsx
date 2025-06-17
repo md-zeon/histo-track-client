@@ -46,11 +46,11 @@ const HowItWorks = () => {
 
 				{/* Step 4 */}
 				<li>
-					<div className='timeline-middle bg-info text-white p-2 rounded shadow-lg'>
+					<div className='timeline-middle bg-neutral text-white p-2 rounded shadow-lg'>
 						<FaGlobe className='text-lg' />
 					</div>
-					<div className='timeline-end mb-10 p-3 border border-info rounded-xl'>
-						<h3 className='text-xl font-semibold text-info'>4. Connect Globally</h3>
+					<div className='timeline-end mb-10 p-3 border border-neutral rounded-xl'>
+						<h3 className='text-xl font-semibold text-neutral'>4. Connect Globally</h3>
 						<p className='text-gray-600'>Engage with a global community of history lovers and artifact collectors.</p>
 					</div>
 				</li>

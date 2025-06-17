@@ -42,7 +42,7 @@ const slides = [
 
 const Banner = () => {
 	return (
-		<div className='w-full'>
+		<div className='w-full mt-3'>
 			<Swiper
 				modules={[Navigation, Pagination, Autoplay, Keyboard]}
 				navigation

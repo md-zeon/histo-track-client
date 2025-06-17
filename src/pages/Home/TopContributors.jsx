@@ -35,17 +35,19 @@ const TopContributors = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-base-200 rounded-xl">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-10">Top Contributors</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contributors.map((user, idx) => (
             <div
               key={idx}
-              className="bg-base-100 p-6 rounded-xl shadow hover:shadow-md transition text-left space-y-2"
+              className="relative overflow-hidden bg-base-100 pb-6 pr-6 pl-8 pt-8  rounded-[5px_20px_5px_20px] shadow hover:shadow-md transition text-left space-y-2"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <FaMedal className="text-3xl text-amber-400" />
+              <div className="flex gap-3 mb-2">
+                <div className="text-3xl absolute -top-1 -left-1 text-center font-bold text-amber-400 w-10 h-10 bg-accent rounded-full">
+                  <span>{idx+1}</span>
+                </div>
                 <h4 className="text-xl font-semibold">{user.name}</h4>
               </div>
               <p className="text-sm text-gray-600">

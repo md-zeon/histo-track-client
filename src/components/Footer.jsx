@@ -10,14 +10,51 @@ const Footer = () => {
 					<div className='grid grid-cols-1 md:grid-cols-4 gap-8 mb-8'>
 						{/* Brand Section */}
 						<div className='col-span-1 md:col-span-2'>
-							<div className='flex items-center space-x-2 mb-4'>
-								<span className='text-4xl font-bold text-primary'>HistoTrack</span>
+							<div className='flex items-center space-x-2 mb-4 text-primary'>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									className='h-10 w-10'
+									fill='none'
+									viewBox='-2.4 0 39.9 39.9'
+									stroke='currentColor'
+								>
+									<g
+										id='Group_57'
+										data-name='Group 57'
+										transform='translate(-223 -130.1)'
+									>
+										<path
+											id='Stroke-1'
+											d='M251,144v25m-21,0V144m7,2v23m7-23v23m-16,0h25'
+											fill='none'
+											stroke-linecap='round'
+											stroke-linejoin='round'
+											stroke-width='2'
+										/>
+										<path
+											id='Stroke-2'
+											d='M227.5,138.1a2.689,2.689,0,0,1,2.7-2.7,3.372,3.372,0,0,1,3.4,3.4,4.268,4.268,0,0,1-4.3,4.3,5.335,5.335,0,0,1-5.3-5.3,6.7,6.7,0,0,1,6.7-6.7h19.7a6.7,6.7,0,0,1,6.7,6.7,5.335,5.335,0,0,1-5.3,5.3,4.268,4.268,0,0,1-4.3-4.3,3.372,3.372,0,0,1,3.4-3.4,2.689,2.689,0,0,1,2.7,2.7'
+											fill='none'
+											stroke-linecap='round'
+											stroke-linejoin='round'
+											stroke-width='2'
+										/>
+										<path
+											id='Stroke-3'
+											d='M234,139h13'
+											fill='none'
+											stroke-linecap='square'
+											stroke-width='2'
+										/>
+									</g>
+								</svg>
+								<span className='text-4xl font-bold'>HistoTrack</span>
 							</div>
 							<p className='leading-relaxed mb-6 max-w-md'>
 								Preserving and sharing the world's most precious historical treasures. Discover, learn, and connect with
 								ancient civilizations through our comprehensive artifact database.
 							</p>
-							<div className='flex space-x-4'>
+							<div className='flex space-x-4 text-xl'>
 								<a
 									href='https://github.com/md-zeon'
 									target='_blank'
