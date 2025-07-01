@@ -46,7 +46,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className='navbar bg-base-100 shadow-sm'>
+		<nav className='navbar px-2 max-w-7xl mx-auto'>
 			<div className='navbar-start'>
 				<div className='dropdown'>
 					<div
@@ -97,24 +97,24 @@ const Navbar = () => {
 								id='Stroke-1'
 								d='M251,144v25m-21,0V144m7,2v23m7-23v23m-16,0h25'
 								fill='none'
-								stroke-linecap='round'
-								stroke-linejoin='round'
-								stroke-width='2'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth='2'
 							/>
 							<path
 								id='Stroke-2'
 								d='M227.5,138.1a2.689,2.689,0,0,1,2.7-2.7,3.372,3.372,0,0,1,3.4,3.4,4.268,4.268,0,0,1-4.3,4.3,5.335,5.335,0,0,1-5.3-5.3,6.7,6.7,0,0,1,6.7-6.7h19.7a6.7,6.7,0,0,1,6.7,6.7,5.335,5.335,0,0,1-5.3,5.3,4.268,4.268,0,0,1-4.3-4.3,3.372,3.372,0,0,1,3.4-3.4,2.689,2.689,0,0,1,2.7,2.7'
 								fill='none'
-								stroke-linecap='round'
-								stroke-linejoin='round'
-								stroke-width='2'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth='2'
 							/>
 							<path
 								id='Stroke-3'
 								d='M234,139h13'
 								fill='none'
-								stroke-linecap='square'
-								stroke-width='2'
+								strokeLinecap='square'
+								strokeWidth='2'
 							/>
 						</g>
 					</svg>
