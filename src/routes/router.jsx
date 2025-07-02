@@ -14,6 +14,7 @@ import UpdateArtifact from "../pages/Artifacts/UpdateArtifact";
 import NotFound from "../pages/NotFound";
 import Terms from "../pages/Terms";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import About from "../pages/About";
 
 const router = createBrowserRouter([
 	{
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
 			{
 				path: "/privacy-policy",
 				Component: PrivacyPolicy,
+			},
+			{
+				path: "/about",
+				Component: About,
 			},
 		],
 	},
