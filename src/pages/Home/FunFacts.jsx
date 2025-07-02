@@ -11,7 +11,7 @@ const FunFacts = () => {
 	return (
 		<section className='max-w-6xl mx-auto px-6 py-20'>
 			<div className='text-center mb-12'>
-				<h2 className='text-4xl font-bold mb-4'>💡 Did You Know?</h2>
+				<h2 className='text-4xl font-bold mb-4'>Did You Know?</h2>
 				<p className='text-gray-600 max-w-2xl mx-auto'>
 					Historical trivia that will spark your curiosity and appreciation for the past.
 				</p>

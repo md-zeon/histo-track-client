@@ -1,6 +1,7 @@
 import { FaGlobe, FaCogs, FaUserFriends, FaHistory } from "react-icons/fa";
 import { motion } from "framer-motion";
 import SiteTitle from "../components/SiteTitle";
+import { Link } from "react-router";
 
 const features = [
 	{
@@ -85,12 +86,12 @@ const About = () => {
 					Create an account to share your own discoveries or explore artifacts submitted by others. Together, we can
 					build a timeless archive of human history.
 				</p>
-				<a
-					href='/register'
+				<Link
+					to='/register'
 					className='btn btn-primary btn-wide text-lg'
 				>
 					Join the Community
-				</a>
+				</Link>
 			</section>
 		</div>
 	);

@@ -35,7 +35,7 @@ const Login = () => {
 			<SiteTitle>Login</SiteTitle>
 			<div className='card bg-base-100 max-w-md w-full shadow-xl rounded-2xl border border-gray-200 p-8 my-12'>
 				<div className='text-center mb-6'>
-					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white text-2xl'>
+					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-primary-content text-2xl'>
 						<FaRocket />
 					</div>
 					<h2 className='text-3xl font-bold mt-4 text-gray-800'>Welcome Back Explorer!</h2>
@@ -86,7 +86,7 @@ const Login = () => {
 						</label>
 						<Link
 							to='/forgot-password'
-							className='text-neutral hover:underline'
+							className='text-blue-600 hover:underline'
 						>
 							Forgot password?
 						</Link>
@@ -107,7 +107,7 @@ const Login = () => {
 					New to HistoTrack?{" "}
 					<Link
 						to='/register'
-						className='text-neutral hover:underline'
+						className='text-blue-600 hover:underline'
 					>
 						Join the Community
 					</Link>

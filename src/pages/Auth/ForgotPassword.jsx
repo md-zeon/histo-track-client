@@ -1,6 +1,6 @@
 import { FaRocket } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SiteTitle from "../../components/SiteTitle";
 import useAuth from "../../hooks/useAuth";
 
@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const email = e.target.email;
-		
+
 		resetPassword(email)
 			.then(() => {
 				toast.success("Password reset email sent!");
@@ -61,12 +61,12 @@ const ForgotPassword = () => {
 
 				<p className='text-center text-sm mt-6 text-gray-600'>
 					Remembered your password?{" "}
-					<a
-						href='/login'
+					<Link
+						to='/login'
 						className='text-blue-600 hover:underline'
 					>
 						Go back to login →
-					</a>
+					</Link>
 				</p>
 			</div>
 		</div>

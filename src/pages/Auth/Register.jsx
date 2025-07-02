@@ -51,7 +51,7 @@ const Register = () => {
 			<SiteTitle>Register</SiteTitle>
 			<div className='card bg-base-100 max-w-md w-full shadow-xl rounded-2xl border border-gray-200 p-8'>
 				<div className='text-center mb-6'>
-					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white text-2xl'>
+					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-primary-content text-2xl'>
 						<FaRocket />
 					</div>
 					<h2 className='text-3xl font-bold mt-4'>Join HistoTrack!</h2>
@@ -129,7 +129,7 @@ const Register = () => {
 					Already have an account?{" "}
 					<Link
 						to='/login'
-						className='text-neutral hover:underline'
+						className='text-blue-600 hover:underline'
 					>
 						Login here
 					</Link>
