@@ -3,14 +3,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui" {
-	themes: light --default, dark --prefersdark, silk;
+	themes: silk --default --prefersdark;
 }
 
 
 /* Custom CSS */
 
 a.active {
-	@apply text-primary underline;
+	@apply text-neutral underline;
 }
 
 body {
@@ -19,9 +19,9 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-	@apply !text-amber-400;
+	@apply !text-primary-content;
 }
 
 .swiper-pagination-bullet-active {
-	@apply !bg-amber-400;
+	@apply !bg-primary-content;
 }

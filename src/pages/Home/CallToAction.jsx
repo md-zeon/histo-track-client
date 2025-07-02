@@ -12,7 +12,7 @@ const CallToAction = () => {
 					</p>
 					<Link
 						to='/add-artifact'
-						className='btn btn-neutral text-white font-semibold hover:scale-105 transition transform duration-300'
+						className='btn btn-primary font-semibold hover:scale-105 transition transform duration-300'
 					>
 						Share Your Artifact <FaArrowRight className='ml-2' />
 					</Link>

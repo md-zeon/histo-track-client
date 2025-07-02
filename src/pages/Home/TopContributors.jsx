@@ -47,7 +47,7 @@ const TopContributors = () => {
 							className='relative overflow-hidden bg-base-100 pb-6 pr-6 pl-8 pt-8  rounded-[5px_20px_5px_20px] shadow hover:shadow-md transition text-left space-y-2'
 						>
 							<div className='flex gap-3 mb-2'>
-								<div className='text-3xl absolute -top-1 -left-1 text-center font-bold text-amber-400 w-10 h-10 bg-accent rounded-full'>
+								<div className='text-3xl font-mono absolute -top-1 -left-1 text-center font-bold text-primary-content w-10 h-10 bg-accent rounded-full'>
 									<span>{idx + 1}</span>
 								</div>
 								<h4 className='text-xl font-semibold'>{user.name}</h4>

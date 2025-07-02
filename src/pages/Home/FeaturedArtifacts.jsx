@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const FeaturedArtifacts = ({ featuredArtifacts }) => {
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-16'>
-			<h2 className='text-3xl font-bold text-center mb-4 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-900'>
+			<h2 className='text-3xl font-bold text-center mb-4'>
 				Featured Historical Artifacts
 			</h2>
 			<p className='text-gray-600 mb-14 max-w-xl mx-auto text-center'>
@@ -15,7 +15,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 				{featuredArtifacts.map((artifact) => (
 					<div
 						key={artifact._id}
-						className='relative rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-101'
+						className='relative rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-101 flex flex-col'
 					>
 						<div className='relative h-60 overflow-hidden'>
 							<img
@@ -33,14 +33,15 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 							</div>
 						</div>
 
-						<div className='bg-white p-5 space-y-2'>
+						<div className='bg-base-200 p-5 flex flex-col gap-2 flex-1'>
 							<h3 className='text-xl font-semibold text-gray-800'>{artifact.name}</h3>
-							<p className='text-gray-600 text-sm leading-relaxed'>{artifact.shortDescription?.slice(0, 100)}...</p>
+							<p className='text-gray-600 text-sm leading-relaxed pb-4'>{artifact.shortDescription?.slice(0, 100)}...</p>
 
-							<div className='mt-4 flex items-center'>
+							{/* Wrap the button in a full-width div to ensure proper alignment */}
+							<div className='mt-auto'>
 								<Link
 									to={`/artifacts/${artifact._id}`}
-									className='btn btn-neutral w-full hover:bg-transparent hover:text-neutral transition duration-300'
+									className='btn btn-primary w-full hover:bg-transparent hover:text-primary transition duration-300'
 								>
 									<FaEye className='mr-1' /> View Details
 								</Link>
@@ -53,7 +54,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 			<div className='flex justify-center mt-16'>
 				<Link
 					to='/all-artifacts'
-					className='btn btn-wide btn-outline btn-neutral transition duration-300'
+					className='btn btn-wide btn-outline btn-primary transition duration-300'
 				>
 					See All Artifacts
 				</Link>
