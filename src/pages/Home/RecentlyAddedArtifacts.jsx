@@ -7,7 +7,7 @@ import Loader from "../../components/ui/Loader";
 const RecentlyAddedArtifacts = () => {
 	const [artifacts, setArtifacts] = useState([]);
 	const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch("https://histotrack-server.vercel.app/artifacts")
@@ -16,13 +16,16 @@ const RecentlyAddedArtifacts = () => {
 			.finally(() => setLoading(false));
 	}, []);
 
-    if (loading) <Loader />
+	if (loading) <Loader />;
 
 	return (
 		<section className='px-6 py-20'>
 			<div className='text-center mb-10'>
 				<h2 className='text-4xl font-bold mb-2'> Recently Added Artifacts</h2>
-				<p className='text-gray-600 max-w-2xl mx-auto'>A latest historical finds from our global community.</p>
+				<p className='text-gray-600 max-w-2xl mx-auto'>
+					Discover the latest historical treasures added by our global community—each artifact tells a fresh story from
+					the past.
+				</p>
 			</div>
 
 			<div className='overflow-x-auto hide-scrollbar'>
@@ -35,7 +38,7 @@ const RecentlyAddedArtifacts = () => {
 							viewport={{ once: true }}
 							transition={{ duration: 0.4, delay: index * 0.1 }}
 							className='relative w-[280px] h-[360px] rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-base-100 to-base-300 group cursor-pointer'
-                            onClick={() => navigate(`/artifacts/${artifact._id}`)}
+							onClick={() => navigate(`/artifacts/${artifact._id}`)}
 						>
 							<img
 								src={artifact.image}

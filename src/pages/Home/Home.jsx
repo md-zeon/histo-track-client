@@ -19,10 +19,12 @@ const Home = () => {
 			<FeaturedArtifacts featuredArtifacts={featuredArtifacts} />
 			{/* How It Works Section */}
 			<HowItWorks />
+			{/* Fun Facts Section */}
 			<FunFacts />
+			{/* Recently Added Section */}
+			<RecentlyAddedArtifacts />
 			{/* Top Contributors Section */}
 			<TopContributors />
-			<RecentlyAddedArtifacts />
 			{/* Call To Action Section */}
 			<CallToAction />
 		</div>
