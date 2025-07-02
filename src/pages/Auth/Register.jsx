@@ -1,4 +1,4 @@
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaRocket } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
@@ -35,96 +35,105 @@ const Register = () => {
 
 		createUser(email, password)
 			.then((res) => {
-				// console.log(res.user);
 				updateUserProfile(name, photoURL)
 					.then(() => {
-						toast.success("User created successfully");
+						toast.success("User registered successfully");
 						form.reset();
 						navigate(location?.state || "/");
 					})
-					.catch((err) => {
-						const errorMessage = err.message;
-						toast.error(errorMessage);
-					});
+					.catch((err) => toast.error(err.message));
 			})
-			.catch((err) => {
-				console.error(err);
-				toast.error(err.message);
-			});
+			.catch((err) => toast.error(err.message));
 	};
-	return (
-		<div className='card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-12'>
-			<SiteTitle>Register</SiteTitle>
-			<div className='card-body'>
-				<h1 className='text-4xl font-bold my-4 text-center'>Register Now</h1>
-				<form
-					className='fieldset'
-					onSubmit={handleRegister}
-				>
-					<label className='label'>Name</label>
-					<input
-						type='text'
-						name='name'
-						className='input'
-						placeholder='Name'
-						required
-					/>
 
-					<label className='label'>Email</label>
-					<input
-						type='email'
-						name='email'
-						className='input'
-						placeholder='Email'
-						autoComplete='email'
-						required
-					/>
-					<label className='label'>photoURL</label>
-					<input
-						type='text'
-						name='photoURL'
-						className='input'
-						placeholder='Photo URL'
-						required
-					/>
+	return (
+		<div className='min-h-screen flex items-center justify-center px-4 my-12'>
+			<SiteTitle>Register</SiteTitle>
+			<div className='card bg-base-100 max-w-md w-full shadow-xl rounded-2xl border border-gray-200 p-8'>
+				<div className='text-center mb-6'>
+					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-white text-2xl'>
+						<FaRocket />
+					</div>
+					<h2 className='text-3xl font-bold mt-4'>Join HistoTrack!</h2>
+					<p className='text-sm text-gray-500 mt-1'>Start preserving the past with us</p>
+				</div>
+
+				<form
+					onSubmit={handleRegister}
+					className='space-y-5'
+				>
+					<div>
+						<label className='text-sm font-medium text-gray-700'>Full Name</label>
+						<input
+							type='text'
+							name='name'
+							placeholder='Your name'
+							className='input input-bordered w-full mt-1'
+							required
+						/>
+					</div>
+
+					<div>
+						<label className='text-sm font-medium text-gray-700'>Email Address</label>
+						<input
+							type='email'
+							name='email'
+							placeholder='Email'
+							className='input input-bordered w-full mt-1'
+							autoComplete='email'
+							required
+						/>
+					</div>
+
+					<div>
+						<label className='text-sm font-medium text-gray-700'>Photo URL</label>
+						<input
+							type='text'
+							name='photoURL'
+							placeholder='Link to your profile photo'
+							className='input input-bordered w-full mt-1'
+							required
+						/>
+					</div>
+
 					<div className='relative'>
-						<label className='label'>Password</label>
+						<label className='text-sm font-medium text-gray-700'>Password</label>
 						<input
 							type={showPassword ? "text" : "password"}
 							name='password'
-							className='input'
-							placeholder='Password'
-							autoComplete='current-password'
+							placeholder='Create a password'
+							className='input input-bordered w-full mt-1'
+							autoComplete='new-password'
 							required
 						/>
 						<span
 							onClick={() => setShowPassword(!showPassword)}
-							className='absolute top-7 z-10 right-8 text-lg cursor-pointer'
+							className='absolute top-10 z-10 right-4 text-gray-500 cursor-pointer'
 						>
 							{showPassword ? <FaEyeSlash /> : <FaEye />}
 						</span>
 					</div>
-					<div>
-						<p>
-							Already have an account? Please{" "}
-							<Link
-								to='/login'
-								className='text-primary underline'
-							>
-								Login
-							</Link>
-						</p>
-					</div>
+
 					<input
 						type='submit'
-						className='btn btn-primary mt-4'
+						className='btn w-full btn-primary'
 						value='Register'
 					/>
 				</form>
-				<div className='divider'>OR</div>
-				<div>
-					<SocialLogin />
-				</div>
+
+				<div className='divider my-6'>OR</div>
+
+				<SocialLogin />
+
+				<p className='text-center text-sm mt-6 text-gray-600'>
+					Already have an account?{" "}
+					<Link
+						to='/login'
+						className='text-neutral hover:underline'
+					>
+						Login here
+					</Link>
+				</p>
 			</div>
 		</div>
 	);

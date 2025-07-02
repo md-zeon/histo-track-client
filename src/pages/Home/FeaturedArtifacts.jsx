@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const FeaturedArtifacts = ({ featuredArtifacts }) => {
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-16'>
-			<h2 className='text-3xl font-bold text-center mb-4'>
+			<h2 className='text-3xl sm:text-4xl font-bold text-center mb-4'>
 				Featured Historical Artifacts
 			</h2>
 			<p className='text-gray-600 mb-14 max-w-xl mx-auto text-center'>

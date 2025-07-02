@@ -16,6 +16,7 @@ import Terms from "../pages/Terms";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import ForgotPassword from "../pages/Auth/ForgotPassword";
 
 const router = createBrowserRouter([
 	{
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
 			{
 				path: "/contact",
 				Component: Contact,
+			},
+			{
+				path: "/forgot-password",
+				Component: ForgotPassword,
 			},
 		],
 	},
