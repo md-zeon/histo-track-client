@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaArrowLeft, FaCalendarAlt, FaHeart, FaMapMarkerAlt, FaRegHeart, FaShareAlt } from "react-icons/fa";
 import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
@@ -52,62 +52,94 @@ const ArtifactDetails = () => {
 				toast.error(err.message || "Failed to toggle like");
 			});
 	};
+	const handleShare = () => {
+		navigator.clipboard.writeText(window.location.href);
+		toast.success("Link copied to clipboard!");
+	};
 
 	return (
-		<div className='max-w-4xl mx-auto p-6'>
+		<div className='px-6 py-12'>
 			<SiteTitle>{artifact.name}</SiteTitle>
-			<div className='card bg-base-100 shadow-xl overflow-hidden'>
-				<figure>
+
+			<button
+				onClick={() => navigate(-1)}
+				className='mb-6 inline-flex cursor-pointer items-center gap-2 text-primary hover:underline'
+			>
+				<FaArrowLeft /> Back to All Artifacts
+			</button>
+
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-start'>
+				{/* Image */}
+				<div className='rounded-xl overflow-hidden shadow-lg'>
 					<img
 						src={artifact.image}
 						alt={artifact.name}
-						className='w-full h-96 object-cover transition duration-300 hover:scale-105'
+						className='w-full h-[400px] object-cover transition hover:scale-105 duration-300'
 					/>
-				</figure>
+				</div>
 
-				<div className='card-body space-y-4'>
-					<button
-						className='btn btn-primary btn-outline btn-circle btn-sm cursor-pointer'
-						onClick={() => navigate(-1)}
-					>
-						<FaArrowLeft />
-					</button>
-					<h2 className='card-title text-3xl font-bold text-primary'>{artifact.name}</h2>
-					<p className='text-gray-600'>{artifact.shortDescription}</p>
+				{/* Content */}
+				<div className='space-y-6'>
+					<h1 className='text-4xl font-bold text-primary'>{artifact.name}</h1>
 
-					<div className='grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700'>
-						<p>
-							<span className='font-bold'>Type:</span> {artifact.type}
-						</p>
-						<p>
-							<span className='font-bold'>Context:</span> {artifact.context}
-						</p>
-						<p>
-							<span className='font-bold'>Created At:</span> {artifact.createdAt}
-						</p>
-						<p>
-							<span className='font-bold'>Discovered At:</span> {artifact.discoveredAt}
-						</p>
-						<p>
-							<span className='font-bold'>Discovered By:</span> {artifact.discoveredBy}
-						</p>
-						<p>
-							<span className='font-bold'>Location:</span> {artifact.location}
-						</p>
+					<div className='flex flex-wrap items-center gap-6 text-sm text-gray-400'>
+						<span className='flex items-center gap-1'>
+							<FaHeart className='text-rose-500' /> {artifact.likes} likes
+						</span>
 					</div>
 
-					<div className='mt-6 flex items-center justify-between'>
+					<div className='grid sm:grid-cols-2 gap-4'>
+						<div className='bg-base-200 rounded-lg p-4 border border-base-300'>
+							<p className='text-xs text-gray-400 font-medium flex items-center gap-1'>
+								<FaCalendarAlt /> Period
+							</p>
+							<p className='font-semibold text-lg'>{artifact.createdAt || "Unknown"}</p>
+						</div>
+						<div className='bg-base-200 rounded-lg p-4 border border-base-300'>
+							<p className='text-xs text-gray-400 font-medium flex items-center gap-1'>
+								<FaMapMarkerAlt /> Location
+							</p>
+							<p className='font-semibold text-lg'>{artifact.location || "Unknown"}</p>
+						</div>
+					</div>
+
+					<div className='bg-base-200 rounded-lg p-5 border border-base-300'>
+						<h3 className='text-xl font-semibold mb-2'>Description</h3>
+						<p className='text-base-content'>{artifact.shortDescription}</p>
+					</div>
+
+					<div className='bg-base-200 rounded-lg p-5 border border-base-300'>
+						<h3 className='text-xl font-semibold mb-2'>Technical Details</h3>
+						<ul className='text-base-content space-y-1'>
+							<li>
+								<strong>Type:</strong> {artifact.type}
+							</li>
+							<li>
+								<strong>Context:</strong> {artifact.context}
+							</li>
+							<li>
+								<strong>Discovered At:</strong> {artifact.discoveredAt}
+							</li>
+							<li>
+								<strong>Discovered By:</strong> {artifact.discoveredBy}
+							</li>
+						</ul>
+					</div>
+					<div className='flex flex-wrap items-center gap-4 pt-4'>
 						<button
 							onClick={toggleLike}
 							className={`btn transition-all duration-300 ${liked ? "btn-error" : "btn-outline"} rounded-full gap-2`}
 						>
 							{liked ? <FaHeart className='text-xl animate-pulse' /> : <FaRegHeart className='text-xl' />}
-							<span>{artifact.likes}</span>
+							<span>{liked ? "Liked" : "Like"} Artifact</span>
 						</button>
 
-						<div className='badge badge-secondary badge-lg badge-outline badge-soft rounded-full px-4 py-2 shadow-inner text-xs sm:text-base'>
-							<FaHeart className='text-red-500' /> Appreciation matters!
-						</div>
+						<button
+							onClick={handleShare}
+							className='btn btn-outline btn-info rounded-full gap-2'
+						>
+							<FaShareAlt /> Share
+						</button>
 					</div>
 				</div>
 			</div>

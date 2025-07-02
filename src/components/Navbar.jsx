@@ -118,7 +118,7 @@ const Navbar = () => {
 							/>
 						</g>
 					</svg>
-					<span className="text-2xl">HistoTrack</span>
+					<span className='text-2xl'>HistoTrack</span>
 				</Link>
 			</div>
 			<div className='navbar-center hidden lg:flex'>
