@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				Component: Home,
-				loader: () => fetch("https://histotrack-server.vercel.app/artifacts?limit=6&sort=likes"),
+				loader: () => fetch("https://histotrack-server.vercel.app/artifacts?limit=8&sort=likes"),
 				hydrateFallbackElement: <Loader />,
 			},
 			{

@@ -11,7 +11,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 				A curated collection of the most fascinating and impactful historical items shared by our community.
 			</p>
 
-			<div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
+			<div className='grid gap-8 md:gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
 				{featuredArtifacts.map((artifact) => (
 					<div
 						key={artifact._id}
@@ -35,9 +35,8 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 
 						<div className='bg-base-200 p-5 flex flex-col gap-2 flex-1'>
 							<h3 className='text-xl font-semibold text-gray-800'>{artifact.name}</h3>
-							<p className='text-gray-600 text-sm leading-relaxed pb-4'>{artifact.shortDescription?.slice(0, 100)}...</p>
+							<p className='text-gray-600 text-sm leading-relaxed line-clamp-3 md:line-clamp-2'>{artifact.shortDescription}..</p>
 
-							{/* Wrap the button in a full-width div to ensure proper alignment */}
 							<div className='mt-auto'>
 								<Link
 									to={`/artifacts/${artifact._id}`}
