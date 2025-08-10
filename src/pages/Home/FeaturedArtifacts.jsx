@@ -42,7 +42,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 									to={`/artifacts/${artifact._id}`}
 									className='btn btn-primary w-full hover:bg-transparent hover:text-primary transition duration-300'
 								>
-									<FaEye className='mr-1' /> View Details
+									<FaEye className='mr-1' /> See More
 								</Link>
 							</div>
 						</div>
