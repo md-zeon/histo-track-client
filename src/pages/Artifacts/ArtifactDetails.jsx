@@ -65,7 +65,7 @@ const ArtifactDetails = () => {
 				onClick={() => navigate(-1)}
 				className='mb-6 inline-flex cursor-pointer items-center gap-2 text-primary hover:underline'
 			>
-				<FaArrowLeft /> Back to All Artifacts
+				<FaArrowLeft /> Go Back
 			</button>
 
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-start'>

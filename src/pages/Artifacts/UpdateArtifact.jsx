@@ -1,13 +1,14 @@
 import Swal from "sweetalert2";
-import { FiEdit, FiImage, FiType, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiMail } from "react-icons/fi";
+import { FiEdit, FiImage, FiType, FiClock, FiUser, FiMapPin, FiBookOpen, FiCalendar, FiArrowLeft } from "react-icons/fi";
 import { toast } from "react-toastify";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import SiteTitle from "../../components/SiteTitle";
 import useArtifactsApi from "../../hooks/useArtifactsApi";
 
 const UpdateArtifact = () => {
 	const artifact = useLoaderData();
 	const { updateArtifactPromise } = useArtifactsApi();
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -71,6 +72,12 @@ const UpdateArtifact = () => {
 			<h2 className='text-3xl font-bold text-center mb-8'>
 				<FiEdit className='inline' /> Update Artifact Info
 			</h2>
+			<button
+				onClick={() => navigate(-1)}
+				className='mb-6 inline-flex cursor-pointer items-center gap-2 text-primary hover:underline'
+			>
+				<FiArrowLeft /> Go Back
+			</button>
 
 			<form
 				onSubmit={handleSubmit}
