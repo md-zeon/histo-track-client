@@ -8,26 +8,31 @@ import SiteTitle from "../../components/SiteTitle";
 
 const Login = () => {
 	const { signInUser } = useAuth();
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	const handleLogin = (e) => {
 		e.preventDefault();
-		const form = e.target;
-		const email = form.email.value;
-		const password = form.password.value;
 		signInUser(email, password)
 			.then((result) => {
 				const user = result.user;
 				toast.success(`Login successful! Welcome ${user.displayName || "Explorer"}`);
-				form.reset();
+				setEmail("");
+				setPassword("");
 				navigate(location?.state || "/");
 			})
 			.catch((error) => {
 				console.log(error);
 				toast.error(error.message);
 			});
+	};
+
+	const handleDemoLogin = () => {
+		setEmail("demo@gmail.com");
+		setPassword("Demo@123456");
 	};
 
 	return (
@@ -55,6 +60,8 @@ const Login = () => {
 							className='input input-bordered w-full mt-1'
 							autoComplete='email'
 							required
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</div>
 
@@ -67,6 +74,8 @@ const Login = () => {
 							className='input input-bordered w-full mt-1'
 							autoComplete='current-password'
 							required
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<span
 							onClick={() => setShowPassword(!showPassword)}
@@ -77,13 +86,13 @@ const Login = () => {
 					</div>
 
 					<div className='flex justify-between items-center text-sm'>
-						<label className='flex items-center gap-2'>
-							<input
-								type='checkbox'
-								className='checkbox checkbox-sm'
-							/>
-							Remember me
-						</label>
+						<button
+							type='button'
+							onClick={handleDemoLogin}
+							className='btn btn-outline btn-primary btn-sm'
+						>
+							Auto-fill Demo
+						</button>
 						<Link
 							to='/forgot-password'
 							className='text-blue-600 dark:text-primary hover:underline'
