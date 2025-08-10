@@ -35,7 +35,7 @@ const TopContributors = () => {
 
 	return (
 		<section className='py-16 bg-base-200 rounded-xl'>
-			<div className='max-w-5xl mx-auto px-6 text-center'>
+			<div className='max-w-7xl mx-auto px-2 text-center'>
 				<h2 className='text-4xl font-bold mb-2'>Top Contributors</h2>
 				<p className='text-gray-600 mb-10 max-w-xl mx-auto'>
 					Meet the most active members of our community who have contributed the most impactful historical artifacts.
@@ -44,7 +44,7 @@ const TopContributors = () => {
 					{contributors.map((user, idx) => (
 						<div
 							key={idx}
-							className='relative overflow-hidden bg-base-100 pb-6 pr-6 pl-8 pt-8  rounded-[5px_20px_5px_20px] shadow hover:shadow-md transition text-left space-y-2'
+							className='relative overflow-hidden bg-base-100 pb-6 pr-6 pl-10 pt-8  rounded-[5px_20px_5px_20px] shadow hover:shadow-md transition text-left space-y-2'
 						>
 							<div className='flex gap-3 mb-2'>
 								<div className='text-3xl font-mono absolute -top-1 -left-1 text-center font-bold text-primary-content w-10 h-10 bg-accent rounded-full'>

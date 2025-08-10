@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 const CallToAction = () => {
 	return (
 		<section>
-			<div className='bg-base-100 p-10 rounded-lg grid gap-5 grid-cols-1  sm:grid-cols-2 items-center'>
+			<div className='bg-base-100 px-2 py-10 rounded-lg grid gap-5 grid-cols-1 sm:grid-cols-2 items-center'>
 				<div className='space-y-5 order-2 sm:order-1'>
 					<h2 className='text-4xl font-bold leading-tight'>Make History by Sharing Yours</h2>
 					<p className='text-lg'>
@@ -19,7 +19,7 @@ const CallToAction = () => {
 				</div>
 				<div className="order-1 sm:order-2">
 					<img
-						className='w-[300px] mx-auto'
+						className='w-[300px] ml-auto mr-5'
 						src='https://i.ibb.co/LDynKLPG/brocken-artitecture.png'
 						alt='broken statue image'
 					/>

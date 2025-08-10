@@ -19,7 +19,7 @@ const RecentlyAddedArtifacts = () => {
 	if (loading) <Loader />;
 
 	return (
-		<section className='px-6 py-20'>
+		<section className='px-2 py-20'>
 			<div className='text-center mb-10'>
 				<h2 className='text-4xl font-bold mb-2'> Recently Added Artifacts</h2>
 				<p className='text-gray-600 max-w-2xl mx-auto'>
@@ -29,7 +29,7 @@ const RecentlyAddedArtifacts = () => {
 			</div>
 
 			<div className='overflow-x-auto hide-scrollbar'>
-				<div className='flex gap-6 w-max px-2'>
+				<div className='flex gap-6 w-max'>
 					{artifacts.map((artifact, index) => (
 						<motion.div
 							key={artifact._id}
