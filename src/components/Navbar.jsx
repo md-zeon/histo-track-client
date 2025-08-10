@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const Navbar = () => {
 	const { user, logoutUser } = useAuth();
@@ -132,7 +133,9 @@ const Navbar = () => {
 			<div className='navbar-center hidden lg:flex'>
 				<ul className='menu menu-horizontal px-1'>{links}</ul>
 			</div>
-			<div className='navbar-end'>
+			<div className='navbar-end gap-6'>
+				{/* Theme Controller */}
+				<ThemeToggle />
 				{user ? (
 					<div className='dropdown dropdown-end'>
 						<div

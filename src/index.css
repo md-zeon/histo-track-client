@@ -3,7 +3,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui" {
-	themes: silk --default --prefersdark;
+	themes: silk --default, dark --prefersdark;
 }
 
 
