@@ -85,8 +85,8 @@ The goal of Histo Track is to create a digital space where people can explore an
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/histotrack.git
-cd histotrack-client-side
+git clone https://github.com/md-zeon/histo-track-client.git
+cd histo-track-client
 
 # Install dependencies
 npm install
