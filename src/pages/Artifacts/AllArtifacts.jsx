@@ -11,6 +11,7 @@ const AllArtifacts = () => {
 	const [loading, setLoading] = useState(false);
 	const [category, setCategory] = useState("all");
 	const [sortBy, setSortBy] = useState("name");
+	const [sortOrder, setSortOrder] = useState("asc");
 	const searchRef = useRef(null);
 	const handleSearch = (e) => {
 		e.preventDefault();
@@ -35,24 +36,25 @@ const AllArtifacts = () => {
 			updated = updated.filter((item) => item.type === category);
 		}
 
-		switch (sortBy) {
-			case "latest":
-				updated = updated.reverse();
-				break;
-			case "oldest":
-				break;
-			case "likes":
-				updated.sort((a, b) => (b.likes || 0) - (a.likes || 0));
-				break;
-			case "name":
-				updated.sort((a, b) => a.name.localeCompare(b.name));
-				break;
-			default:
-				break;
+		updated.sort((a, b) => {
+			switch (sortBy) {
+				case "likes":
+					return (a.likes || 0) - (b.likes || 0);
+				case "name":
+					return a.name.localeCompare(b.name);
+				case "date":
+					return new Date(a.createdAt) - new Date(b.createdAt);
+				default:
+					return 0;
+			}
+		});
+
+		if (sortOrder === "desc") {
+			updated.reverse();
 		}
 
 		setFiltered(updated);
-	}, [artifacts, category, sortBy]);
+	}, [artifacts, category, sortBy, sortOrder]);
 
 	return (
 		<div className='max-w-7xl mx-auto px-4 py-10'>
@@ -66,7 +68,7 @@ const AllArtifacts = () => {
 
 			<form
 				onSubmit={handleSearch}
-				className='grid grid-cols-1 sm:grid-cols-4 gap-4 bg-base-200 p-6 mb-10'
+				className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-base-200 p-6 mb-10'
 			>
 				<div>
 					<label className='label'>
@@ -95,14 +97,27 @@ const AllArtifacts = () => {
 						onChange={(e) => setSortBy(e.target.value)}
 						className='select select-bordered w-full'
 					>
-						<option value='name'>Name A-Z</option>
-						<option value='latest'>Latest</option>
-						<option value='oldest'>Oldest</option>
-						<option value='likes'>Most Liked</option>
+						<option value='name'>Name</option>
+						<option value='date'>Date</option>
+						<option value='likes'>Likes</option>
 					</select>
 				</div>
 
-				<div className='sm:col-span-2'>
+				<div>
+					<label className='label'>
+						<span className='label-text font-semibold'>Order</span>
+					</label>
+					<select
+						value={sortOrder}
+						onChange={(e) => setSortOrder(e.target.value)}
+						className='select select-bordered w-full'
+					>
+						<option value='asc'>Ascending</option>
+						<option value='desc'>Descending</option>
+					</select>
+				</div>
+
+				<div className='md:col-span-1'>
 					<label className='label'>
 						<span className='label-text font-semibold'>Search</span>
 					</label>
