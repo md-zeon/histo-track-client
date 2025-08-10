@@ -40,7 +40,7 @@ const ForgotPassword = () => {
 					className='space-y-5'
 				>
 					<div>
-						<label className='text-sm font-medium text-gray-700'>Email Address</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Email Address</label>
 						<input
 							type='email'
 							name='email'
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
 					</button>
 				</form>
 
-				<p className='text-center text-sm mt-6 text-gray-600'>
+				<p className='text-center text-sm mt-6 text-gray-600 dark:text-gray-400'>
 					Remembered your password?{" "}
 					<Link
 						to='/login'

@@ -22,7 +22,7 @@ const RecentlyAddedArtifacts = () => {
 		<section className='px-2 py-20'>
 			<div className='text-center mb-10'>
 				<h2 className='text-4xl font-bold mb-2'> Recently Added Artifacts</h2>
-				<p className='text-gray-600 max-w-2xl mx-auto'>
+				<p className='text-gray-600 dark:text-gray-400 max-w-2xl mx-auto'>
 					Discover the latest historical treasures added by our global community—each artifact tells a fresh story from
 					the past.
 				</p>

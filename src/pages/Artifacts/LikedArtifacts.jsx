@@ -35,7 +35,7 @@ const LikedArtifacts = () => {
 			<SiteTitle>Liked Artifacts</SiteTitle>
 			<h1 className='text-3xl font-bold mb-6'>Your Liked Artifacts</h1>
 			{likedArtifacts.length === 0 ? (
-				<p className='text-gray-600'>You haven't liked any artifacts yet.</p>
+				<p className='text-gray-600 dark:text-gray-400'>You haven't liked any artifacts yet.</p>
 			) : (
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
 					{likedArtifacts.map((artifact) => (
@@ -53,7 +53,7 @@ const LikedArtifacts = () => {
 							</figure>
 							<div className='card-body'>
 								<h2 className='card-title'>{artifact.name}</h2>
-								<p className='text-sm text-gray-600 truncate'>{artifact.shortDescription}</p>
+								<p className='text-sm text-gray-600 dark:text-gray-400 truncate'>{artifact.shortDescription}</p>
 								<div className='mt-2 flex items-center gap-2 text-red-500'>
 									<FaHeart /> <span>{artifact.likes || 0}</span>
 								</div>

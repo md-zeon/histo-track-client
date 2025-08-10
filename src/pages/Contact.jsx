@@ -9,7 +9,7 @@ const Contact = () => {
 
 			<div className='text-center mb-10'>
 				<h2 className='text-4xl font-bold text-primary mb-3'>Let's Talk</h2>
-				<p className='text-gray-600 max-w-xl mx-auto'>
+				<p className='text-gray-600 dark:text-gray-400 max-w-xl mx-auto'>
 					Have a question, idea, or want to collaborate? Reach out to the HistoTrack team—we'd love to hear from you!
 				</p>
 			</div>
@@ -20,15 +20,15 @@ const Contact = () => {
 						<h4 className='text-xl font-semibold mb-2 text-secondary'>
 							<LuMail className="sm:inline mx-auto sm:mx-0" /> Email
 						</h4>
-						<p className='text-gray-600'>support@histotrack.com</p>
+						<p className='text-gray-600 dark:text-gray-400'>support@histotrack.com</p>
 					</div>
 					<div className='bg-base-100 p-6 rounded-xl shadow-sm text-center sm:text-start'>
 						<h4 className='text-xl font-semibold mb-2 text-secondary'><LuWorkflow className="sm:inline mx-auto sm:mx-0" /> Office</h4>
-						<p className='text-gray-600'>Dhaka, Bangladesh (Remote Team)</p>
+						<p className='text-gray-600 dark:text-gray-400'>Dhaka, Bangladesh (Remote Team)</p>
 					</div>
 					<div className='bg-base-100 p-6 rounded-xl shadow-sm text-center sm:text-start'>
 						<h4 className='text-xl font-semibold mb-2 text-secondary'><LuClock className="sm:inline mx-auto sm:mx-0" /> Hours</h4>
-						<p className='text-gray-600'>Mon-Fri: 9AM - 6PM</p>
+						<p className='text-gray-600 dark:text-gray-400'>Mon-Fri: 9AM - 6PM</p>
 					</div>
 				</div>
 

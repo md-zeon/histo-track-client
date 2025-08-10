@@ -26,7 +26,7 @@ const HowItWorks = () => {
 			>
 				How It Works
 			</motion.h2>
-			<p className='text-gray-600 mb-12 max-w-3xl mx-auto text-center'>
+			<p className='text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto text-center'>
 				Explore how Histo Track connects history lovers around the world. Learn how to find, share, and contribute
 				historical artifacts in just a few easy steps.
 			</p>
@@ -45,7 +45,7 @@ const HowItWorks = () => {
 					</div>
 					<div className='timeline-start md:text-end mb-10 p-3 border border-primary rounded-xl'>
 						<h3 className='text-xl font-semibold text-primary'>1. Discover Artifacts</h3>
-						<p className='text-gray-600'>
+						<p className='text-gray-600 dark:text-gray-400'>
 							Browse through a world of historical treasures uploaded by enthusiasts like you.
 						</p>
 					</div>
@@ -65,7 +65,7 @@ const HowItWorks = () => {
 					</div>
 					<div className='timeline-end mb-10 p-3 border border-secondary rounded-xl'>
 						<h3 className='text-xl font-semibold text-secondary'>2. Like & Save</h3>
-						<p className='text-gray-600'>Show appreciation and bookmark your favorite artifacts for quick access.</p>
+						<p className='text-gray-600 dark:text-gray-400'>Show appreciation and bookmark your favorite artifacts for quick access.</p>
 					</div>
 					<hr />
 				</motion.li>
@@ -83,7 +83,7 @@ const HowItWorks = () => {
 					</div>
 					<div className='timeline-start md:text-end mb-10 p-3 border border-accent rounded-xl'>
 						<h3 className='text-xl font-semibold text-accent'>3. Add Your Own</h3>
-						<p className='text-gray-600'>Contribute by uploading your own historical discoveries and stories.</p>
+						<p className='text-gray-600 dark:text-gray-400'>Contribute by uploading your own historical discoveries and stories.</p>
 					</div>
 					<hr />
 				</motion.li>
@@ -101,7 +101,7 @@ const HowItWorks = () => {
 					</div>
 					<div className='timeline-end mb-10 p-3 border border-neutral rounded-xl'>
 						<h3 className='text-xl font-semibold text-neutral'>4. Connect Globally</h3>
-						<p className='text-gray-600'>Engage with a global community of history lovers and artifact collectors.</p>
+						<p className='text-gray-600 dark:text-gray-400'>Engage with a global community of history lovers and artifact collectors.</p>
 					</div>
 				</motion.li>
 			</ul>

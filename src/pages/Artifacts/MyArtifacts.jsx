@@ -68,7 +68,7 @@ const MyArtifacts = () => {
 		return (
 			<div className='min-h-[50vh] flex items-center justify-center text-center'>
 				<SiteTitle>No Artifacts Found</SiteTitle>
-				<div className='flex flex-col gap-3 text-xl font-semibold text-gray-600'>
+				<div className='flex flex-col gap-3 text-xl font-semibold text-gray-600 dark:text-gray-400'>
 					<div className='flex justify-center'>
 						<CiWarning className='text-6xl' />
 					</div>

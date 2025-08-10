@@ -12,7 +12,7 @@ const NotFound = () => {
 						<CiWarning className='text-9xl text-red-500 animate-pulse' />
 					</div>
 					<h2 className='text-5xl font-extrabold mb-4 text-primary'>Lost in History?</h2>
-					<p className='text-lg text-gray-600 mb-6'>
+					<p className='text-lg text-gray-600 dark:text-gray-400 mb-6'>
 						The artifact you're searching for might be missing, buried in time, or simply doesn't exist.
 					</p>
 					<Link

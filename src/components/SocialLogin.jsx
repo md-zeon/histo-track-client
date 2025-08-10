@@ -22,7 +22,7 @@ const SocialLogin = () => {
 		<div>
 			<button
 				onClick={handleGoogleLogin}
-				className='btn btn-neutral btn-outline w-full'
+				className='btn btn-neutral dark:btn-primary btn-outline w-full'
 			>
 				{" "}
 				<FaGoogle /> Login with Google

@@ -7,7 +7,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 			<h2 className='text-3xl sm:text-4xl font-bold text-center mb-4'>
 				Featured Historical Artifacts
 			</h2>
-			<p className='text-gray-600 mb-14 max-w-xl mx-auto text-center'>
+			<p className='text-gray-600 dark:text-gray-400 mb-14 max-w-xl mx-auto text-center'>
 				A curated collection of the most fascinating and impactful historical items shared by our community.
 			</p>
 
@@ -35,7 +35,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 
 						<div className='bg-base-200 p-5 flex flex-col gap-2 flex-1'>
 							<h3 className='text-xl font-semibold text-gray-800'>{artifact.name}</h3>
-							<p className='text-gray-600 text-sm leading-relaxed line-clamp-3 md:line-clamp-2'>{artifact.shortDescription}..</p>
+							<p className='text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3 md:line-clamp-2'>{artifact.shortDescription}..</p>
 
 							<div className='mt-auto'>
 								<Link

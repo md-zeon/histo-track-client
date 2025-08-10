@@ -60,7 +60,7 @@ const AllArtifacts = () => {
 			<h2 className='text-3xl font-bold text-center mb-4'>
 				<FaLandmark className='inline' /> All Artifacts
 			</h2>
-			<p className='text-center text-gray-600 max-w-xl mx-auto mb-10'>
+			<p className='text-center text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-10'>
 				Explore history through every shared artifact. Search, filter, and discover hidden gems.
 			</p>
 
@@ -135,7 +135,7 @@ const AllArtifacts = () => {
 					{filtered.map((artifact) => (
 						<div
 							key={artifact._id}
-							className='rounded-xl overflow-hidden bg-base-100 shadow-md hover:shadow-xl transition duration-300 group flex flex-col'
+							className='rounded-xl overflow-hidden bg-base-100 dark:bg-base-200 shadow-md hover:shadow-xl transition duration-300 group flex flex-col'
 						>
 							<figure className='relative'>
 								<img
@@ -146,10 +146,10 @@ const AllArtifacts = () => {
 								<span className='absolute top-2 left-2 badge badge-primary capitalize'>{artifact.type}</span>
 							</figure>
 							<div className='p-5 flex flex-col gap-2 flex-1'>
-								<h3 className='text-lg font-semibold text-neutral group-hover:text-primary transition'>
+								<h3 className='text-lg font-semibold text-neutral dark:text-primary group-hover:text-primary transition'>
 									{artifact.name}
 								</h3>
-								<p className='text-sm text-gray-600 line-clamp-2'>{artifact.shortDescription}</p>
+								<p className='text-sm text-gray-600 dark:text-gray-400 line-clamp-2'>{artifact.shortDescription}</p>
 								<div className='text-sm text-gray-500 flex items-center gap-2 mt-auto'>
 									<FaRegClock /> {artifact.createdAt?.split("T")[0] || "Unknown"}
 								</div>

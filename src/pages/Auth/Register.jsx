@@ -63,7 +63,7 @@ const Register = () => {
 					className='space-y-5'
 				>
 					<div>
-						<label className='text-sm font-medium text-gray-700'>Full Name</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Full Name</label>
 						<input
 							type='text'
 							name='name'
@@ -74,7 +74,7 @@ const Register = () => {
 					</div>
 
 					<div>
-						<label className='text-sm font-medium text-gray-700'>Email Address</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Email Address</label>
 						<input
 							type='email'
 							name='email'
@@ -86,7 +86,7 @@ const Register = () => {
 					</div>
 
 					<div>
-						<label className='text-sm font-medium text-gray-700'>Photo URL</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Photo URL</label>
 						<input
 							type='text'
 							name='photoURL'
@@ -97,7 +97,7 @@ const Register = () => {
 					</div>
 
 					<div className='relative'>
-						<label className='text-sm font-medium text-gray-700'>Password</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Password</label>
 						<input
 							type={showPassword ? "text" : "password"}
 							name='password'
@@ -125,7 +125,7 @@ const Register = () => {
 
 				<SocialLogin />
 
-				<p className='text-center text-sm mt-6 text-gray-600'>
+				<p className='text-center text-sm mt-6 text-gray-600 dark:text-gray-400'>
 					Already have an account?{" "}
 					<Link
 						to='/login'

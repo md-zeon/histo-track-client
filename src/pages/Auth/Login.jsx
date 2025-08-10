@@ -47,7 +47,7 @@ const Login = () => {
 					className='space-y-5'
 				>
 					<div>
-						<label className='text-sm font-medium text-gray-700'>Email Address</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Email Address</label>
 						<input
 							type='email'
 							name='email'
@@ -59,7 +59,7 @@ const Login = () => {
 					</div>
 
 					<div className='relative'>
-						<label className='text-sm font-medium text-gray-700'>Password</label>
+						<label className='text-sm font-medium text-gray-700 dark:text-gray-300'>Password</label>
 						<input
 							type={showPassword ? "text" : "password"}
 							name='password'
@@ -103,7 +103,7 @@ const Login = () => {
 
 				<SocialLogin />
 
-				<p className='text-center text-sm mt-6 text-gray-600'>
+				<p className='text-center text-sm mt-6 text-gray-600 dark:text-gray-400'>
 					New to HistoTrack?{" "}
 					<Link
 						to='/register'

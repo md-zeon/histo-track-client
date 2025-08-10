@@ -12,7 +12,7 @@ const FunFacts = () => {
 		<section className='max-w-7xl mx-auto px-2 py-20'>
 			<div className='text-center mb-12'>
 				<h2 className='text-4xl font-bold mb-4'>Did You Know?</h2>
-				<p className='text-gray-600 max-w-2xl mx-auto'>
+				<p className='text-gray-600 dark:text-gray-400 max-w-2xl mx-auto'>
 					Historical trivia that will spark your curiosity and appreciation for the past.
 				</p>
 			</div>
@@ -29,7 +29,7 @@ const FunFacts = () => {
 					>
 						<div className='flex items-start gap-4'>
 							<FaLightbulb className='text-primary text-3xl mt-1' />
-							<p className='text-gray-700 text-lg font-medium leading-relaxed'>{fact}</p>
+							<p className='text-gray-700 dark:text-gray-300 text-lg font-medium leading-relaxed'>{fact}</p>
 						</div>
 					</motion.div>
 				))}

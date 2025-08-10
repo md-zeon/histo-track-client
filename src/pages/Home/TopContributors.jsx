@@ -37,7 +37,7 @@ const TopContributors = () => {
 		<section className='py-16 bg-base-200 rounded-xl'>
 			<div className='max-w-7xl mx-auto px-2 text-center'>
 				<h2 className='text-4xl font-bold mb-2'>Top Contributors</h2>
-				<p className='text-gray-600 mb-10 max-w-xl mx-auto'>
+				<p className='text-gray-600 dark:text-gray-400 mb-10 max-w-xl mx-auto'>
 					Meet the most active members of our community who have contributed the most impactful historical artifacts.
 				</p>
 				<div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
@@ -47,15 +47,15 @@ const TopContributors = () => {
 							className='relative overflow-hidden bg-base-100 pb-6 pr-6 pl-10 pt-8  rounded-[5px_20px_5px_20px] shadow hover:shadow-md transition text-left space-y-2'
 						>
 							<div className='flex gap-3 mb-2'>
-								<div className='text-3xl font-mono absolute -top-1 -left-1 text-center font-bold text-primary-content w-10 h-10 bg-accent rounded-full'>
+								<div className='text-3xl font-mono absolute -top-1 -left-1 text-center font-bold text-primary-content w-10 h-10 bg-accent dark:bg-primary rounded-full'>
 									<span>{idx + 1}</span>
 								</div>
 								<h4 className='text-xl font-semibold'>{user.name}</h4>
 							</div>
-							<p className='text-sm text-gray-600'>
+							<p className='text-sm text-gray-600 dark:text-gray-400'>
 								Artifacts Contributed: <span className='font-bold'>{user.artifacts}</span>
 							</p>
-							<p className='text-sm text-gray-600'>
+							<p className='text-sm text-gray-600 dark:text-gray-400'>
 								Total Likes: <span className='font-bold'>{user.likes}</span>
 							</p>
 						</div>
