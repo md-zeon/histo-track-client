@@ -15,7 +15,7 @@
 
 ## 📦 Repositories
 
-- 🔸 **Client-Side Repository**: [[https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-md-zeon](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-md-zeon)]
+- 🔸 **Client-Side Repository**: [[https://github.com/md-zeon/histo-track-client](https://github.com/md-zeon/histo-track-client)]
 - 🔸 **Server-Side Repository**: [[https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-md-zeon](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-md-zeon)]
 
 ---
