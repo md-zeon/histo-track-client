@@ -29,7 +29,7 @@ const FunFacts = () => {
 					>
 						<div className='flex items-start gap-4'>
 							<FaLightbulb className='text-primary text-3xl mt-1' />
-							<p className='text-gray-700 dark:text-gray-300 text-lg font-medium leading-relaxed'>{fact}</p>
+							<p className='text-lg font-medium leading-relaxed'>{fact}</p>
 						</div>
 					</motion.div>
 				))}

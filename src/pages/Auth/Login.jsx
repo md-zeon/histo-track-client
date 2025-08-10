@@ -38,8 +38,8 @@ const Login = () => {
 					<div className='w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center text-primary-content text-2xl'>
 						<FaRocket />
 					</div>
-					<h2 className='text-3xl font-bold mt-4 text-gray-800'>Welcome Back Explorer!</h2>
-					<p className='text-sm text-gray-500 mt-1'>Continue your journey through history</p>
+					<h2 className='text-3xl font-bold mt-4'>Welcome Back Explorer!</h2>
+					<p className='text-sm text-gray-500 mt-1 dark:text-gray-400'>Continue your journey through history</p>
 				</div>
 
 				<form
@@ -86,7 +86,7 @@ const Login = () => {
 						</label>
 						<Link
 							to='/forgot-password'
-							className='text-blue-600 hover:underline'
+							className='text-blue-600 dark:text-primary hover:underline'
 						>
 							Forgot password?
 						</Link>
@@ -107,7 +107,7 @@ const Login = () => {
 					New to HistoTrack?{" "}
 					<Link
 						to='/register'
-						className='text-blue-600 hover:underline'
+						className='text-blue-600 dark:text-primary hover:underline'
 					>
 						Join the Community
 					</Link>

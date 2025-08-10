@@ -34,7 +34,7 @@ const FeaturedArtifacts = ({ featuredArtifacts }) => {
 						</div>
 
 						<div className='bg-base-200 p-5 flex flex-col gap-2 flex-1'>
-							<h3 className='text-xl font-semibold text-gray-800'>{artifact.name}</h3>
+							<h3 className='text-xl font-semibold'>{artifact.name}</h3>
 							<p className='text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-3 md:line-clamp-2'>{artifact.shortDescription}..</p>
 
 							<div className='mt-auto'>

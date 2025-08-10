@@ -63,7 +63,7 @@ const ForgotPassword = () => {
 					Remembered your password?{" "}
 					<Link
 						to='/login'
-						className='text-blue-600 hover:underline'
+						className='text-blue-600 dark:text-primary hover:underline'
 					>
 						Go back to login →
 					</Link>

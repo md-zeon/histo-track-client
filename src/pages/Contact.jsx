@@ -15,19 +15,19 @@ const Contact = () => {
 			</div>
 
 			<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-				<div className='space-y-6'>
-					<div className='bg-base-100 p-6 rounded-xl shadow-sm text-center sm:text-start'>
-						<h4 className='text-xl font-semibold mb-2 text-secondary'>
+				<div className='grid gap-6'>
+					<div className='bg-base-100 dark:bg-base-200 p-6 rounded-xl shadow-sm text-center sm:text-start'>
+						<h4 className='text-xl font-semibold mb-2 text-secondary dark:text-primary'>
 							<LuMail className="sm:inline mx-auto sm:mx-0" /> Email
 						</h4>
 						<p className='text-gray-600 dark:text-gray-400'>support@histotrack.com</p>
 					</div>
-					<div className='bg-base-100 p-6 rounded-xl shadow-sm text-center sm:text-start'>
-						<h4 className='text-xl font-semibold mb-2 text-secondary'><LuWorkflow className="sm:inline mx-auto sm:mx-0" /> Office</h4>
+					<div className='bg-base-100 dark:bg-base-200 p-6 rounded-xl shadow-sm text-center sm:text-start'>
+						<h4 className='text-xl font-semibold mb-2 text-secondary dark:text-primary'><LuWorkflow className="sm:inline mx-auto sm:mx-0" /> Office</h4>
 						<p className='text-gray-600 dark:text-gray-400'>Dhaka, Bangladesh (Remote Team)</p>
 					</div>
-					<div className='bg-base-100 p-6 rounded-xl shadow-sm text-center sm:text-start'>
-						<h4 className='text-xl font-semibold mb-2 text-secondary'><LuClock className="sm:inline mx-auto sm:mx-0" /> Hours</h4>
+					<div className='bg-base-100 dark:bg-base-200 p-6 rounded-xl shadow-sm text-center sm:text-start'>
+						<h4 className='text-xl font-semibold mb-2 text-secondary dark:text-primary'><LuClock className="sm:inline mx-auto sm:mx-0" /> Hours</h4>
 						<p className='text-gray-600 dark:text-gray-400'>Mon-Fri: 9AM - 6PM</p>
 					</div>
 				</div>
@@ -38,7 +38,7 @@ const Contact = () => {
 						e.target.reset();
 						toast.success("Thanks for reaching out! We'll get back to you soon.");
 					}}
-					className='bg-base-100 p-8 rounded-xl shadow-lg space-y-6'
+					className='bg-base-100 dark:bg-base-200 p-8 rounded-xl shadow-lg space-y-6'
 				>
 					<div>
 						<label className='block text-sm font-medium mb-1'>Your Name</label>

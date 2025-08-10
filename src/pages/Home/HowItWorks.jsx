@@ -99,8 +99,8 @@ const HowItWorks = () => {
 					<div className='timeline-middle bg-neutral text-white p-2 rounded shadow-lg'>
 						<FaGlobe className='text-lg' />
 					</div>
-					<div className='timeline-end mb-10 p-3 border border-neutral rounded-xl'>
-						<h3 className='text-xl font-semibold text-neutral'>4. Connect Globally</h3>
+					<div className='timeline-end mb-10 p-3 border border-neutral dark:border-base-content rounded-xl'>
+						<h3 className='text-xl font-semibold text-neutral dark:text-base-content'>4. Connect Globally</h3>
 						<p className='text-gray-600 dark:text-gray-400'>Engage with a global community of history lovers and artifact collectors.</p>
 					</div>
 				</motion.li>

@@ -64,7 +64,7 @@ const Banner = () => {
 							/>
 							<div className='absolute inset-0 flex flex-col justify-center items-start p-10 text-white bg-gradient-to-r from-black/70 via-black/40 to-transparent'>
 								<h2 className='text-4xl md:text-5xl font-bold mb-2'>{slide.title}</h2>
-								<h3 className='text-xl md:text-2xl font-semibold text-primary-content mb-4'>{slide.subtitle}</h3>
+								<h3 className='text-xl md:text-2xl font-semibold text-green-400 mb-4'>{slide.subtitle}</h3>
 								<p className='max-w-xl text-sm md:text-base mb-4'>{slide.description}</p>
 								<div className='flex flex-wrap items-center gap-6 text-sm md:text-base'>
 									<span className='flex items-center gap-1'>
